@@ -1,113 +1,135 @@
 # Portfolio Component Architecture (COMPONENTS.md)
 
-본 문서는 유용완 채용대행 PM 포트폴리오의 **React 컴포넌트 구조 및 인터랙션 다이어그램**입니다. Vite + TypeScript 환경에서의 컴포넌트 계층, State 및 훅(Hook)의 흐름을 정의합니다.
+본 문서는 유용완 채용대행 PM 포트폴리오의 **컴포넌트 구조 및 인터랙션 다이어그램**입니다. 정적 HTML 요소를 구조적으로 모듈화하고, 각 영역이 자바스크립트 이벤트 및 모달 시스템과 어떻게 유기적으로 동작하는지 나타냅니다.
 
 ---
 
-## 1. React 컴포넌트 트리 (Component Hierarchy)
+## 1. 컴포넌트 계층 구조 (Component Hierarchy)
 
-웹 페이지의 전체 구조는 `src/App.tsx`를 루트로 하여 독립적인 UI 컴포넌트로 세분화되며, 전역 모달 상태(`isOpen`, `modalType`) 및 트리거 함수(`onOpenModal`)를 자식 컴포넌트에 Props로 공유합니다.
+웹 페이지의 전체 구조는 아래와 같이 단일 레이아웃 위에 독립적인 섹션(Section) 컴포넌트와 전역 인터랙션 시스템(Modal Subsystem)으로 구성됩니다.
 
 ```mermaid
 graph TD
-    %% App root
-    App[App.tsx - Root State] --> Nav[Navigation.tsx]
-    App --> Hero[Hero.tsx]
-    App --> About[About.tsx]
-    App --> Ach[Achievements.tsx]
-    App --> Career[Career.tsx]
-    App --> Proj[Projects.tsx]
-    App --> Skills[Skills.tsx]
-    App --> Edu[Education.tsx]
-    App --> Contact[Contact.tsx]
-    App --> Foot[Footer.tsx]
-    App --> Modal[Modal.tsx - Global Popups]
+    %% Base Layout
+    Main[index.html Layout] --> Nav[Navigation Bar]
+    Main --> Hero[Hero Section]
+    Main --> About[About Section]
+    Main --> Ach[Key Achievements]
+    Main --> Career[Career Timeline]
+    Main --> Proj[Key Projects]
+    Main --> Skills[Skills & Tools]
+    Main --> Edu[Education Section]
+    Main --> Contact[Contact Section]
+    Main --> Foot[Footer]
+    Main --> ModalOverlay[Global Modal Overlay]
 
-    %% Shared function / state flows
-    About -.-> |onOpenModal| App
-    Proj -.-> |onOpenModal| App
-    Skills -.-> |onOpenModal| App
-    App -.-> |Props: isOpen, type, onClose| Modal
+    %% Navigation Details
+    Nav --> NavLogo[YYW Monogram Brand]
+    Nav --> NavLinks[Desktop/Mobile Menu Links]
+    NavLinks -.-> |Anchor Jump| Hero
+    NavLinks -.-> |Anchor Jump| About
+    NavLinks -.-> |Anchor Jump| Career
+    NavLinks -.-> |Anchor Jump| Proj
+    NavLinks -.-> |Anchor Jump| Skills
+    NavLinks -.-> |Anchor Jump| Edu
 
-    %% Component Details
-    Nav --> MobileMenu[Mobile Menu State]
-    About --> CountUp[AnimatedNumber Counter]
-    About --> KPIProgress[KPI Progress Bars]
-    Ach --> DonutSVG[Bid Success Donut Chart]
-    Ach --> BarCompare[Contract Expansion Chart]
-    Ach --> LineCompare[Time Reduction Line Chart]
-    Ach --> GaugeSVG[Target Ratio Gauge Chart]
+    %% About Details
+    About --> AboutDesc[Intro Biography]
+    About --> CoverLetterTrigger[Read Cover Letter Button]
+    About --> KPICards[KPI Cards Stack]
+    KPICards --> KPI1[Tenure Stat]
+    KPICards --> KPI2[Annual PM Projects]
+    KPICards --> KPI3[CS Score - Highlighted]
+
+    %% Achievements Details
+    Ach --> AchDash[Dashboard Grid]
+    AchDash --> AchCard1[Tender Success Rate - Highlighted]
+    AchDash --> AchCard2[Contract Expansion Bar Chart]
+    AchDash --> AchCard3[Validation Time Comparison]
+    AchDash --> AchCard4[Target Ratio Gauge Chart]
+
+    %% Projects Details
     Proj --> ProjGrid[Projects Grid 2x2]
-    Skills --> SkillBars[Skill Range Bars]
-    Skills --> RadarSVG[Competency Radar Chart]
-    Skills --> CertCards[Cert Cards Grid]
-    Edu --> GPABar[GPA Progress Bar]
+    ProjGrid --> P1[Story 1 Card]
+    ProjGrid --> P2[Story 2 Card]
+    ProjGrid --> P3[Story 3 Card]
+    ProjGrid --> P4[Story 4 Card]
+    Proj --> CSTrigger[View CS Interview Button]
 
-    %% Assets
-    Hero --> LogoAsset[Import logo_yyw.png]
-    Modal --> CertSocialAsset[Import cert_social.png]
-    Modal --> CertExcelAsset[Import cert_excel.png]
-    Modal --> CertBadgesAsset[Import cert_badges.png]
+    %% Skills Details
+    Skills --> SkillBars[Skill Gauge Bars]
+    Skills --> RadarChart[Competency Radar Chart]
+    Skills --> CertCards[Credential Cards Grid]
+    CertCards --> Cert1[ADsP Card]
+    CertCards --> Cert2[Social Survey Card]
+    CertCards --> Cert3[Excel Card]
+    CertCards --> CertZoomTrigger[Credential Bundle Card]
+
+    %% Global Modal Overlay Details
+    ModalOverlay --> ModalPanel[Modal Panel Wrapper]
+    ModalPanel --> ModalCloseBtn[Close Button]
+    ModalPanel --> ModalBodyContent[Dynamic Body Area]
 ```
 
 ---
 
-## 2. 상태 관리 및 훅 제어 흐름 (State & Hook Flows)
+## 2. 동적 인터랙션 및 데이터 흐름 (Behavior & Interaction)
 
-### A. 전역 모달 상태 전달 (Modal Interaction Flow)
-기존 HTML의 `<template>` 복제 방식 대신, React 컴포넌트의 단일 조건부 렌더링 스펙을 구현하여 메모리 누수를 방지하고 접근성을 대폭 향상했습니다.
+### A. 모달 제어 흐름 (Modal Control Flow)
+사용자가 `data-modal` 속성을 갖는 버튼을 클릭했을 때 HTML 내에 선언된 `<template>` 엘리먼트를 활용하여 모달창을 띄우는 흐름입니다.
 
 ```mermaid
 sequenceDiagram
     autonumber
     actor User as 사용자
-    participant Comp as About / Projects / Skills
-    participant App as App.tsx (Root State)
-    participant Modal as Modal.tsx
+    participant trigger as data-modal 클릭 타겟
+    participant mainjs as main.js (Event Listener)
+    participant template as HTML template tag
+    participant overlay as #modalOverlay
+    participant body as #modalBody
 
-    User ->> Comp: 클릭 (예: 자소서 전문 읽기 / 자격증 보기)
-    Comp ->> App: handleOpenModal(type) 실행 (Props 함수 호출)
-    App ->> App: setModalType(type) 및 setIsModalOpen(true)
-    App ->> Modal: Props 전달 (isOpen: true, type: type)
-    Modal ->> Modal: body.style.overflow = 'hidden' (스크롤 락)
-    Modal ->> User: 모달 레이아웃 애니메이션 렌더링 (CSS Transition)
-
-    Note over User, Modal: 모달 활성화 상태
-
-    User ->> Modal: ✕ 버튼 클릭 또는 외부 배경 영역 클릭
-    Modal ->> App: onClose() 실행 (Props 함수 호출)
-    App ->> App: setIsModalOpen(false)
-    App ->> App: 200ms 대기 (닫기 트랜지션 완료 후)
-    App ->> App: setModalType(null) (마운트 해제)
-    Modal ->> Modal: body.style.overflow = '' (스크롤 락 해제)
-    Modal ->> User: 모달 소멸 및 원상복구
+    User ->> trigger: 클릭 (예: 자소서 보기)
+    trigger ->> mainjs: Event Delegation 감지
+    mainjs ->> mainjs: e.preventDefault() 실행 및 modal ID 추출
+    mainjs ->> template: id (tpl-cover-letter 등) 검색
+    template -->> mainjs: Template content 반환
+    mainjs ->> body: innerHTML 초기화 후 content 복제본(clone) 삽입
+    mainjs ->> overlay: .open 클래스 추가 (화면 표시)
+    mainjs ->> User: 모달 레이아웃 애니메이션 렌더링
+    
+    Note over User, overlay: 모달 활성화 상태 (뒷배경 스크롤 방지 body overflow:hidden)
+    
+    User ->> overlay: 외부 영역 클릭 혹은 ✕ 버튼 클릭
+    overlay ->> mainjs: Close trigger 감지
+    mainjs ->> overlay: .open 클래스 제거 (서서히 사라짐)
+    mainjs ->> User: 모달 닫힘 및 뒷배경 스크롤 복구
+    mainjs ->> body: 300ms 대기 후 innerHTML 비우기 (메모리 해제)
 ```
 
-### B. 뷰포트 진입 감지 및 애니메이션 (useIntersectionObserver Hook Flow)
-`useIntersectionObserver` 커스텀 훅을 기반으로 개별 컴포넌트가 화면에 노출되는 순간을 감지하고, 이에 맞추어 차트 및 수치 카운트업을 자동으로 실행합니다.
+### B. 뷰포트 진입 감지 애니메이션 (Intersection Observer Flow)
+사용자가 스크롤하여 특정 섹션에 도달했을 때 텍스트 리빌 효과 및 차트의 차오르는 그래프 효과를 트리거하는 시스템입니다.
 
 ```mermaid
 sequenceDiagram
     autonumber
     actor User as 사용자 (스크롤)
-    participant Viewport as 브라우저 뷰포트
-    participant Hook as useIntersectionObserver
-    participant Comp as About / Achievements / Skills / Edu
+    participant browser as 브라우저 뷰포트
+    participant observer as IntersectionObserver
+    participant element as .reveal / Chart 요소
 
-    User ->> Viewport: 스크롤 진행
-    Viewport ->> Hook: 엘리먼트 교차 감지 (threshold 10~15%)
-    Hook ->> Comp: isIntersecting 상태 변경 (true)
-    Hook ->> Hook: observer.unobserve(element) (최초 1회만 트리거하도록 관찰 종료)
+    User ->> browser: 스크롤 다운
+    browser ->> observer: 뷰포트 교차율 감지 (threshold 10~15%)
+    observer ->> element: Target 요소 감지 알림
     
     alt 일반 텍스트 리빌 (.reveal)
-        Comp ->> Viewport: .visible 클래스 추가
-        Viewport ->> User: 0.55s 간 위로 슬라이드하며 페이드인
-    else 수치 카운터 (AnimatedNumber)
-        Comp ->> Comp: startTrigger 활성화
-        Comp ->> Comp: requestAnimationFrame을 통한 1.2s 간 수치 카운트업
-        Comp ->> User: 0부터 목표 수치까지 변하는 애니메이션 렌더링
-    else 차트 차오르기 (SVG / Progress Bar)
-        Comp ->> Comp: style.width 또는 strokeDasharray 값 0 -> Target 세팅
-        Comp ->> User: 부드럽게 차오르는 게이지 애니메이션 렌더링
+        observer ->> element: .visible 클래스 추가
+        element ->> User: 0.55초간 위로 밀어올리며 페이드인
+    else 카운터 및 차트 영역 (#about, #achievements, #skills)
+        observer ->> element: data-target / data-width 읽기
+        observer ->> element: requestAnimationFrame 실행 (카운터 수치 상승)
+        observer ->> element: style.width 또는 strokeDasharray 변경
+        element ->> User: 수치 카운트업 및 그래프 차오르는 애니메이션 렌더링
     end
+
+    observer ->> observer: unobserve(target) 실행 (최초 1회만 트리거되도록 관찰 해제)
 ```

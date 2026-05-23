@@ -1,150 +1,109 @@
-## 유용완 | Recruitment Consulting PM (Vibe Coding Practitioner)
-### "현장의 경험으로 실수를 줄이고, 기술의 활용으로 효율을 높입니다."
+# 유용완 Portfolio — GitHub Pages 배포 가이드
 
-*  데이터와 시스템을 기반으로 채용의 전 과정을 관리하며, 고객사가 믿고 맡길 수 있는 결과를 만드는 채용대행 PM 유용완입니다.
+## 🚀 배포 방법
 
-*  공공기관 및 공기업 채용 프로젝트의 기획(RFP)부터 고사장 세팅, 서류·면접 전형의 차질 없는 운영, 데이터 기반의 사후 분석까지 채용 전반의 실무를 책임져 왔습니다. 수많은 지원자가 참여하는 대규모 전형을 현장에서 직접 발로 뛰며 운영해 온 경험을 바탕으로, 안정적인 채용 프로세스를 설계하는 데 강점이 있습니다.
+### 1. GitHub 리포지토리 생성
+1. GitHub에서 새 리포지토리를 만듭니다.
+   - 리포지토리 이름: `your-username.github.io` (개인 페이지) 또는 원하는 이름
+   - Public으로 설정
 
-*  최근에는 이러한 현장 운영 노하우를 바이브 코딩(Vibe Coding)과 결합하여, 반복되는 실무의 번거로움을 해결하는 '실무 밀착형 채용 시스템 기획'에 관심을 가지고 있습니다. 기획서에만 머무는 아이디어를 AI로 직접 프로토타이핑하여 현장의 비효율을 걷어내고, 안정적인 운영과 실질적인 기술 혁신이 조화를 이루는 채용 환경을 만드는 데 집중합니다.
----
-
-## 🚀 Core Competencies (핵심 전문성 방향)
-
-### 📊 데이터 기반 채용 설계 및 프로세스 최적화 (Data-Driven HR)
-*   **산업심리학 및 응용통계학**을 복수 전공하여 인적자원 개발(HRD/HRM)과 통계적 검증에 강점이 있습니다.
-*   **ADsP, 사회조사분석사 2급** 자격을 바탕으로 서류/필기 평가 기준의 신뢰도를 분석하고 채용 프로세스 내 비효율을 진단합니다.
-*   기존 7일이 소요되던 증명서 진위 확인 프로세스를 **서류 선제 수집 및 병렬 검증 프로세스**로 전환하여 **소요 시간을 57% 단축**했습니다.
-
-### ✍️ 높은 입찰 성공률과 전략적 RFP 기획 (Strategic Proposal)
-*   공공 채용 시장의 요구사항과 타겟 지원자 성향을 분석하여 맞춤형 제안서를 작성합니다.
-*   연간 채용 사업 **입찰 성공률 60%**를 기록 중이며, 단순 대행을 넘어 고객사의 페인 포인트를 해결하는 홍보·운영 전략을 역제안합니다.
-*   한정된 예산 내에서 오프라인 다이렉트 홍보 전략을 수립하여 **신설 공공기관 채용 지원율을 목표 대비 200% 이상**으로 끌어올렸습니다.
-
-### 🤝 탁월한 프로젝트 매니지먼트 및 CS 만족 (Premium PM)
-*   연간 10건 이상의 공공기관 채용 프로젝트를 총괄하며 쌓은 리스크 관리 역량으로 예기치 못한 이슈에 유연하게 대응합니다.
-*   고객사와 투명한 실시간 데이터 공유 및 선제적 리스크 관리 체계를 통해 **2024년 고객사 CS 만족도 100점 만점**을 달성했습니다.
-*   프로젝트 진행 중 파악한 신규 니즈를 바탕으로 필기 전형 추가 수의계약을 이끌어내어 **단일 계약 규모를 66% 증액(1.2억 → 2.0억)** 시켰습니다.
-
----
-
-## 📈 Key Metrics (주요 성과 지표)
-
-| 지표 | 성과 수치 | 비고 |
-| :--- | :---: | :--- |
-| **채용 대행 경력** | **3년 3개월+** | HR 컨설팅사 평가운영실 PM 재직 중 |
-| **연간 프로젝트 수행** | **10건+** | 공공기관 및 준정부기관 채용 총괄 |
-| **입찰 성공률** | **60%** | 전략적 제안(RFP) 및 차별화된 데이터 제안 |
-| **고객사 CS 만족도** | **100점** | 2024년 평가운영실 기준 |
-| **검증 기간 단축** | **-57%** | 병렬 프로세스 개선 (7일 → 3일) |
-| **단일 계약 증액** | **+66%** | 선제적 과업 제안 (1.2억 → 2.0억) |
-
----
-
-## 🛠️ Skills & Tools
-
-### **HR & PM Domain**
-*   **Recruitment Management:** 채용 기획, 제안서(RFP) 기획 및 작성, 리스크 관리, 고객사 커뮤니케이션(CS)
-*   **Assessment Tool Design:** 직무 분석, 역량 모델링, 면접 평가 척도 수립, 역량평가 과제(AC/DC) 개발 지원
-
-### **Data & Tech Stack**
-*   **Data Analysis:** Microsoft Excel (상 - 데이터 전처리, 정산, 자동화 템플릿 설계), SPSS (중 - 요인분석, 신뢰도 분석), Python / SAS / R (기초 데이터 처리)
-*   **Collaboration:** Notion, Slack, Google Workspace
-
-### **Certifications (전문 자격)**
-*   **데이터분석:** ADsP 데이터분석 준전문가 (2022), 사회조사분석사 2급 (2022)
-*   **IT/행정:** 컴퓨터활용능력 1급 (2023)
-
----
-
-## 📁 Key Project Portfolio (주요 프로젝트 경험)
-
-### 1. 신설 공공기관 정규직 채용 대행 PM (2025)
-*   **채용 규모**: 정규직 26명 (신입 및 경력)
-*   **주요 과업**: 감사관 입회 하에 만장일치 공정성 검증 완료, 목표 대비 **지원율 200%+** 달성.
-*   **해결 방법**: 한정된 예산 극복을 위해 단가 협상 및 유관 협회 다이렉트 홍보망 가동, 객관적 경력 산정 기준 정립.
-
-### 2. 준정부기관 대규모 정기채용 대행 PM (2025)
-*   **채용 규모**: 정규·기간제 110명 (11개 직종)
-*   **주요 과업**: 서류 진위 확인 기간 단축 (**7일 → 3일**), **고객사 만족도 100점** 달성.
-*   **해결 방법**: 서류 선제 수집 및 병렬 검증 프로세스 설계로 일정 단축, 담당자 교체 리스크 극복.
-
-### 3. 에너지 공기업 연간 반복채용 PM (2024)
-*   **채용 규모**: 일반·경영직 149명 (11개 직종)
-*   **주요 과업**: 계약 금액 **66% 증액** 달성 (1.2억 → 2.0억).
-*   **해결 방법**: 타겟 지역 오프라인 홍보 및 순환 면접 현장 관리 역제안, 필기시험 전형 추가 수의계약 수주.
-
----
-
-## 🎓 Education & Background
-*   **호서대학교 학사 졸업 (2016.03 — 2022.02)**
-    *   산업심리학 전공 & 응용통계학 복수 전공
-    *   **졸업 학점**: 4.06 / 4.5
-    *   *주요 이수 과목*: 직무분석, 역량모델링, 인적자원개발, 조직심리학, 심리통계법, 빅데이터분석, SAS/R/Python 실습
-*   **기타 사항**: 해병대 병장 만기 전역 (2017.01 — 2018.10)
-
----
-
-## 📬 Contact & Links
-*   **Email:** [yongwan5871@gmail.com](mailto:yongwan5871@gmail.com)
-*   **GitHub:** [github.com/humanalystyy](https://github.com/humanalystyy)
-*   **Kaggle:** [humanalystyy](https://www.kaggle.com/humanalystyy)
-*   **Notion Portfolio:** [유용완 노션 포트폴리오](https://www.notion.so/YOU-YONG-WAN-77e6db26e7e347a2ab3bc9ed03e73796)
-
----
-
-## 💻 React Project Architecture & Implementation
-
-본 프로젝트는 정적 HTML 포트폴리오를 **React (Vite + TypeScript) + Tailwind CSS v4** 기반의 현대적인 컴포넌트 아키텍처로 마이그레이션하였습니다.
-
-### 1. 컴포넌트 구조도 (Mermaid Component Tree)
-
-```mermaid
-graph TD
-    App[App.tsx - Root State & Modal Manager] --> Nav[Navigation.tsx]
-    App --> Hero[Hero.tsx]
-    App --> About[About.tsx]
-    App --> Ach[Achievements.tsx]
-    App --> Career[Career.tsx]
-    App --> Proj[Projects.tsx]
-    App --> Skills[Skills.tsx]
-    App --> Edu[Education.tsx]
-    App --> Contact[Contact.tsx]
-    App --> Foot[Footer.tsx]
-    
-    App --> Modal[Modal.tsx - Global Popups]
-
-    About -.-> |onOpenModal: cover-letter| App
-    Proj -.-> |onOpenModal: story-1/2/3| App
-    Skills -.-> |onOpenModal: cert-social / cert-excel-view| App
-    
-    App -.-> |Props: isOpen, type, onClose| Modal
-```
-
-### 2. 주요 파일 및 디렉토리 위치
-
-*   **메인 및 라우트:**
-    *   [App.tsx](file:///c:/Users/user/Desktop/vibe%20codeing/BooleanHR/src/App.tsx): 전역 모달 상태 관리 및 모든 컴포넌트 조율.
-    *   [main.tsx](file:///c:/Users/user/Desktop/vibe%20codeing/BooleanHR/src/main.tsx): React 렌더링 진입점.
-*   **스타일링 및 테마:**
-    *   [index.css](file:///c:/Users/user/Desktop/vibe%20codeing/BooleanHR/src/index.css): Tailwind CSS v4 `@theme` 기반 그레이스케일 토큰 확장 및 글로벌 애니메이션 정의.
-*   **핵심 컴포넌트 (`src/components/`):**
-    *   [Navigation.tsx](file:///c:/Users/user/Desktop/vibe%20codeing/BooleanHR/src/components/Navigation.tsx): 상단 스크롤 흐림 효과(Sticky) 및 햄버거 토글 모바일 메뉴.
-    *   [Hero.tsx](file:///c:/Users/user/Desktop/vibe%20codeing/BooleanHR/src/components/Hero.tsx): 모노그램 로고 브랜딩 및 스크롤 다운 인디케이터.
-    *   [About.tsx](file:///c:/Users/user/Desktop/vibe%20codeing/BooleanHR/src/components/About.tsx): KPI 데이터 수치 카운터 및 진행도 바 애니메이션.
-    *   [Achievements.tsx](file:///c:/Users/user/Desktop/vibe%20codeing/BooleanHR/src/components/Achievements.tsx): SVG 기반 입찰성공률 도넛 차트 및 목표대비 지원율 게이지 차트.
-    *   [Skills.tsx](file:///c:/Users/user/Desktop/vibe%20codeing/BooleanHR/src/components/Skills.tsx): 6대 스킬 게이지 바, SVG radar 역량 분포 차트, 3개 취득 자격증 카드.
-    *   [Modal.tsx](file:///c:/Users/user/Desktop/vibe%20codeing/BooleanHR/src/components/Modal.tsx): 조건부 마운트 기반의 자기소개서 전문 및 자격증 이미지 증빙 팝업.
-*   **커스텀 훅:**
-    *   [useIntersectionObserver.ts](file:///c:/Users/user/Desktop/vibe%20codeing/BooleanHR/src/hooks/useIntersectionObserver.ts): 뷰포트 진입 감지 기반 스크롤 reveal 및 그래프 애니메이션 제어.
-
-### 3. 로컬 실행 및 재현 방법
-
+### 2. 파일 업로드
 ```bash
-# 의존성 모듈 설치
-npm install
+# portfolio 폴더로 이동
+cd portfolio
 
-# 로컬 개발 서버 구동
-npm run dev
+# Git 초기화
+git init
+git add .
+git commit -m "Initial portfolio"
+
+# 원격 리포지토리 연결
+git remote add origin https://github.com/your-username/your-repo.git
+git push -u origin main
 ```
-개발 서버 기동 후 브라우저에서 `http://localhost:5173` 으로 접속하여 확인 가능합니다.
 
+### 3. GitHub Pages 활성화
+1. 리포지토리 → Settings → Pages
+2. Source: `Deploy from a branch`
+3. Branch: `main`, Folder: `/ (root)`
+4. Save
+
+배포 완료 후 `https://your-username.github.io/your-repo/` 에서 확인
+
+---
+
+## ✏️ 수정 가이드
+
+### 내용 수정하기
+`index.html` 파일에서 `✏️ 수정 가능` 주석을 검색하세요.
+각 섹션별 수정 포인트가 표시되어 있습니다.
+
+| 수정 항목 | 파일 | 검색 키워드 |
+|-----------|------|-------------|
+| 이름/직함/모토 | `index.html` | `HERO SECTION` |
+| 자기소개 텍스트 | `index.html` | `ABOUT SECTION` |
+| 핵심 수치 | `index.html` | `핵심 수치` |
+| 경력 사항 | `index.html` | `CAREER SECTION` |
+| 프로젝트 | `index.html` | `PROJECTS SECTION` |
+| 스킬/자격증 | `index.html` | `SKILLS` |
+| 학력 | `index.html` | `EDUCATION` |
+| 연락처 | `index.html` | `CONTACT` |
+| 색상/폰트 | `css/style.css` | `:root` |
+
+### 디자인 수정하기
+`css/style.css` 상단의 `:root` 블록에서 CSS 변수를 수정하세요:
+
+```css
+:root {
+  --bg-primary: #0a0a0a;        /* 메인 배경 */
+  --text-highlight: #ffffff;     /* 핵심 강조 색상 */
+  --accent-warm: #b0a898;        /* 포인트 컬러 */
+  --section-gap: 140px;          /* 섹션 간격 */
+  --container-width: 780px;      /* 컨텐츠 너비 */
+}
+```
+
+### 경력/프로젝트 항목 추가하기
+
+**경력 추가 예시:**
+```html
+<div class="timeline__item reveal">
+  <div class="timeline__dot"></div>
+  <div class="timeline__period">2025.01 — 2025.12</div>
+  <div class="timeline__company">회사명</div>
+  <div class="timeline__role">부서 · 직급</div>
+  <ul class="timeline__desc">
+    <li>업무 내용 1</li>
+    <li><span class="timeline__highlight">강조 내용</span></li>
+  </ul>
+</div>
+```
+
+**프로젝트 추가 예시:**
+```html
+<div class="project reveal">
+  <div class="project__year">2025</div>
+  <div class="project__info">
+    <div class="project__name">
+      <span class="project__role-badge">PM</span>
+      프로젝트명
+    </div>
+    <div class="project__scale">규모 설명</div>
+    <div class="project__result">핵심 성과</div>
+  </div>
+</div>
+```
+
+---
+
+## 📁 파일 구조
+
+```
+portfolio/
+├── index.html          # 메인 페이지 (내용 수정)
+├── css/
+│   └── style.css       # 스타일 (디자인 수정)
+├── js/
+│   └── main.js         # 애니메이션 (수정 불필요)
+└── README.md           # 이 파일
+```
