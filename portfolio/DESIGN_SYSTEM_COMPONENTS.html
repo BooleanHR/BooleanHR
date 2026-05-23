@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YYW Portfolio Design System Components</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      background: #fafafa;
+      color: #1a1a1a;
+      padding: 60px 20px;
+    }
+    .ds-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .ds-header {
+      border-bottom: 1px solid #e4e4e4;
+      padding-bottom: 24px;
+      margin-bottom: 48px;
+    }
+    .ds-header h1 {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+    .ds-header p {
+      color: #6b6b6b;
+      margin-top: 8px;
+      font-size: 16px;
+    }
+    .ds-section {
+      background: #ffffff;
+      border: 1px solid #e4e4e4;
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 32px;
+    }
+    .ds-section h2 {
+      font-size: 20px;
+      font-weight: 600;
+      border-bottom: 1px solid #efefef;
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+    }
+    .ds-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #999999;
+      margin-bottom: 16px;
+    }
+    .ds-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .ds-row-dark {
+      background: #111111;
+      padding: 24px;
+      border-radius: 8px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .ds-code {
+      background: #f7f7f7;
+      border: 1px solid #efefef;
+      border-radius: 6px;
+      padding: 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      overflow-x: auto;
+      white-space: pre;
+      margin-top: 12px;
+      color: #2d2d2d;
+    }
+    .color-swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 16px;
+    }
+    .color-swatch {
+      border: 1px solid #e4e4e4;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .color-preview {
+      height: 80px;
+    }
+    .color-info {
+      padding: 12px;
+    }
+    .color-name {
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .color-hex {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #6b6b6b;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="ds-container">
+  <div class="ds-header">
+    <h1>YYW Portfolio Design System Components</h1>
+    <p>포트폴리오에 적용된 핵심 UI 컴포넌트 스니펫 및 스타일 가이드입니다.</p>
+  </div>
+
+  <!-- COLORS -->
+  <div class="ds-section">
+    <h2>1. Color Tokens (색상 시스템)</h2>
+    <div class="ds-meta">Core palettes used in css/style.css</div>
+    <div class="color-swatch-grid">
+      <div class="color-swatch">
+        <div class="color-preview" style="background: #1a1a1a;"></div>
+        <div class="color-info">
+          <div class="color-name">--ink</div>
+          <div class="color-hex">#1a1a1a</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-preview" style="background: #2d2d2d;"></div>
+        <div class="color-info">
+          <div class="color-name">--charcoal</div>
+          <div class="color-hex">#2d2d2d</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-preview" style="background: #4a4a4a;"></div>
+        <div class="color-info">
+          <div class="color-name">--slate</div>
+          <div class="color-hex">#4a4a4a</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-preview" style="background: #999999;"></div>
+        <div class="color-info">
+          <div class="color-name">--stone</div>
+          <div class="color-hex">#999999</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-preview" style="background: #e4e4e4;"></div>
+        <div class="color-info">
+          <div class="color-name">--hairline</div>
+          <div class="color-hex">#e4e4e4</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-preview" style="background: #ffffff; border-bottom: 1px solid #efefef;"></div>
+        <div class="color-info">
+          <div class="color-name">--canvas</div>
+          <div class="color-hex">#ffffff</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-preview" style="background: #111111;"></div>
+        <div class="color-info">
+          <div class="color-name">--dark-bg</div>
+          <div class="color-hex">#111111</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUTTONS -->
+  <div class="ds-section">
+    <h2>2. Buttons (버튼 컴포넌트)</h2>
+    <div class="ds-meta">CSS Class: .btn, .btn-dark, .btn-outline, .btn-on-dark, .btn-ghost-on-dark</div>
+    
+    <div class="ds-row">
+      <button class="btn btn-dark">기본 강조 버튼 (Dark)</button>
+      <button class="btn btn-outline">아웃라인 버튼 (Outline)</button>
+    </div>
+    
+    <div class="ds-row-dark">
+      <button class="btn btn-on-dark">어두운배경 버튼 (On Dark)</button>
+      <button class="btn btn-ghost-on-dark">고스트 버튼 (Ghost On Dark)</button>
+    </div>
+
+    <div class="ds-code">&lt;!-- Light Background --&gt;
+&lt;button class="btn btn-dark"&gt;기본 강조 버튼 (Dark)&lt;/button&gt;
+&lt;button class="btn btn-outline"&gt;아웃라인 버튼 (Outline)&lt;/button&gt;
+
+&lt;!-- Dark Background --&gt;
+&lt;button class="btn btn-on-dark"&gt;어두운배경 버튼 (On Dark)&lt;/button&gt;
+&lt;button class="btn btn-ghost-on-dark"&gt;고스트 버튼 (Ghost On Dark)&lt;/button&gt;</div>
+  </div>
+
+  <!-- BADGES & TAGS -->
+  <div class="ds-section">
+    <h2>3. Badges (뱃지 및 태그)</h2>
+    <div class="ds-meta">CSS Class: .badge, .badge-live, .badge-dark, .badge-subtle</div>
+    
+    <div class="ds-row" style="align-items: center;">
+      <span class="badge badge-live">재직중</span>
+      <span class="badge badge-dark">PM</span>
+      <span class="badge badge-subtle">2025</span>
+    </div>
+
+    <div class="ds-code">&lt;span class="badge badge-live"&gt;재직중&lt;/span&gt;
+&lt;span class="badge badge-dark"&gt;PM&lt;/span&gt;
+&lt;span class="badge badge-subtle"&gt;2025&lt;/span&gt;</div>
+  </div>
+
+  <!-- CARDS -->
+  <div class="ds-section">
+    <h2>4. Cards (카드 레이아웃)</h2>
+    <div class="ds-meta">CSS Class: .kpi-card, .kpi-card--accent, .dash-card, .dash-card--accent</div>
+    
+    <div class="ds-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+      <!-- KPI Card Normal -->
+      <div class="kpi-card" style="width: 100%;">
+        <div class="kpi-card__value">10<span class="kpi-card__unit">건 이상</span></div>
+        <div class="kpi-card__label">연간 PM 프로젝트</div>
+        <div class="kpi-card__bar"><div class="kpi-card__bar-fill" style="width: 85%;"></div></div>
+      </div>
+      
+      <!-- KPI Card Highlighted -->
+      <div class="kpi-card kpi-card--accent" style="width: 100%;">
+        <div class="kpi-card__value">100<span class="kpi-card__unit">점</span></div>
+        <div class="kpi-card__label">고객사 CS 만족도</div>
+        <div class="kpi-card__bar"><div class="kpi-card__bar-fill" style="width: 100%;"></div></div>
+      </div>
+    </div>
+
+    <div class="ds-code">&lt;!-- 기본 KPI 카드 --&gt;
+&lt;div class="kpi-card"&gt;
+  &lt;div class="kpi-card__value"&gt;10&lt;span class="kpi-card__unit"&gt;건 이상&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="kpi-card__label"&gt;연간 PM 프로젝트&lt;/div&gt;
+  &lt;div class="kpi-card__bar"&gt;&lt;div class="kpi-card__bar-fill" style="width: 85%;"&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 강조 KPI 카드 (색상 반전) --&gt;
+&lt;div class="kpi-card kpi-card--accent"&gt;
+  &lt;div class="kpi-card__value"&gt;100&lt;span class="kpi-card__unit"&gt;점&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="kpi-card__label"&gt;고객사 CS 만족도&lt;/div&gt;
+  &lt;div class="kpi-card__bar"&gt;&lt;div class="kpi-card__bar-fill" style="width: 100%;"&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;</div>
+  </div>
+
+  <!-- CERTIFICATION CARD -->
+  <div class="ds-section">
+    <h2>5. Certification Card (자격증 카드)</h2>
+    <div class="ds-meta">CSS Class: .cert-visual-card</div>
+    
+    <div class="ds-row">
+      <div class="cert-visual-card" style="width: 280px; cursor: default;">
+        <div class="cert-visual-card__icon">
+          <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
+            <circle cx="14" cy="14" r="9" stroke="#4a4a4a" stroke-width="1.2" />
+            <path d="M10 14l3 3 5-5" stroke="#999" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <div class="cert-visual-card__name">사조사 2급</div>
+        <div class="cert-visual-card__full">사회조사분석사 2급</div>
+        <div class="cert-visual-card__year">2022</div>
+        <div class="cert-visual-card__org">한국산업인력공단</div>
+      </div>
+    </div>
+
+    <div class="ds-code">&lt;div class="cert-visual-card"&gt;
+  &lt;div class="cert-visual-card__icon"&gt;
+    &lt;svg width="24" height="24" viewBox="0 0 28 28" fill="none"&gt;
+      &lt;circle cx="14" cy="14" r="9" stroke="#4a4a4a" stroke-width="1.2" /&gt;
+      &lt;path d="M10 14l3 3 5-5" stroke="#999" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" /&gt;
+    &lt;/svg&gt;
+  &lt;/div&gt;
+  &lt;div class="cert-visual-card__name"&gt;사조사 2급&lt;/div&gt;
+  &lt;div class="cert-visual-card__full"&gt;사회조사분석사 2급&lt;/div&gt;
+  &lt;div class="cert-visual-card__year"&gt;2022&lt;/div&gt;
+  &lt;div class="cert-visual-card__org"&gt;한국산업인력공단&lt;/div&gt;
+&lt;/div&gt;</div>
+  </div>
+
+</div>
+
+</body>
+</html>
