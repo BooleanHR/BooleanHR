@@ -89,3 +89,62 @@
 *   **GitHub:** [github.com/humanalystyy](https://github.com/humanalystyy)
 *   **Kaggle:** [humanalystyy](https://www.kaggle.com/humanalystyy)
 *   **Notion Portfolio:** [유용완 노션 포트폴리오](https://www.notion.so/YOU-YONG-WAN-77e6db26e7e347a2ab3bc9ed03e73796)
+
+---
+
+## 💻 React Project Architecture & Implementation
+
+본 프로젝트는 정적 HTML 포트폴리오를 **React (Vite + TypeScript) + Tailwind CSS v4** 기반의 현대적인 컴포넌트 아키텍처로 마이그레이션하였습니다.
+
+### 1. 컴포넌트 구조도 (Mermaid Component Tree)
+
+```mermaid
+graph TD
+    App[App.tsx - Root State & Modal Manager] --> Nav[Navigation.tsx]
+    App --> Hero[Hero.tsx]
+    App --> About[About.tsx]
+    App --> Ach[Achievements.tsx]
+    App --> Career[Career.tsx]
+    App --> Proj[Projects.tsx]
+    App --> Skills[Skills.tsx]
+    App --> Edu[Education.tsx]
+    App --> Contact[Contact.tsx]
+    App --> Foot[Footer.tsx]
+    
+    App --> Modal[Modal.tsx - Global Popups]
+
+    About -.-> |onOpenModal: cover-letter| App
+    Proj -.-> |onOpenModal: story-1/2/3| App
+    Skills -.-> |onOpenModal: cert-social / cert-excel-view| App
+    
+    App -.-> |Props: isOpen, type, onClose| Modal
+```
+
+### 2. 주요 파일 및 디렉토리 위치
+
+*   **메인 및 라우트:**
+    *   [App.tsx](file:///c:/Users/user/Desktop/vibe%20codeing/BooleanHR/src/App.tsx): 전역 모달 상태 관리 및 모든 컴포넌트 조율.
+    *   [main.tsx](file:///c:/Users/user/Desktop/vibe%20codeing/BooleanHR/src/main.tsx): React 렌더링 진입점.
+*   **스타일링 및 테마:**
+    *   [index.css](file:///c:/Users/user/Desktop/vibe%20codeing/BooleanHR/src/index.css): Tailwind CSS v4 `@theme` 기반 그레이스케일 토큰 확장 및 글로벌 애니메이션 정의.
+*   **핵심 컴포넌트 (`src/components/`):**
+    *   [Navigation.tsx](file:///c:/Users/user/Desktop/vibe%20codeing/BooleanHR/src/components/Navigation.tsx): 상단 스크롤 흐림 효과(Sticky) 및 햄버거 토글 모바일 메뉴.
+    *   [Hero.tsx](file:///c:/Users/user/Desktop/vibe%20codeing/BooleanHR/src/components/Hero.tsx): 모노그램 로고 브랜딩 및 스크롤 다운 인디케이터.
+    *   [About.tsx](file:///c:/Users/user/Desktop/vibe%20codeing/BooleanHR/src/components/About.tsx): KPI 데이터 수치 카운터 및 진행도 바 애니메이션.
+    *   [Achievements.tsx](file:///c:/Users/user/Desktop/vibe%20codeing/BooleanHR/src/components/Achievements.tsx): SVG 기반 입찰성공률 도넛 차트 및 목표대비 지원율 게이지 차트.
+    *   [Skills.tsx](file:///c:/Users/user/Desktop/vibe%20codeing/BooleanHR/src/components/Skills.tsx): 6대 스킬 게이지 바, SVG radar 역량 분포 차트, 3개 취득 자격증 카드.
+    *   [Modal.tsx](file:///c:/Users/user/Desktop/vibe%20codeing/BooleanHR/src/components/Modal.tsx): 조건부 마운트 기반의 자기소개서 전문 및 자격증 이미지 증빙 팝업.
+*   **커스텀 훅:**
+    *   [useIntersectionObserver.ts](file:///c:/Users/user/Desktop/vibe%20codeing/BooleanHR/src/hooks/useIntersectionObserver.ts): 뷰포트 진입 감지 기반 스크롤 reveal 및 그래프 애니메이션 제어.
+
+### 3. 로컬 실행 및 재현 방법
+
+```bash
+# 의존성 모듈 설치
+npm install
+
+# 로컬 개발 서버 구동
+npm run dev
+```
+개발 서버 기동 후 브라우저에서 `http://localhost:5173` 으로 접속하여 확인 가능합니다.
+
