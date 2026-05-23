@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import certSocial from '../assets/cert_social.png';
 import certExcel from '../assets/cert_excel.png';
-import certBadges from '../assets/cert_badges.png';
 
 interface ModalProps {
   isOpen: boolean;
@@ -384,20 +383,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, type, onClose }) => {
             </div>
           </div>
         );
-      case 'cert-image-zoom':
-        return (
-          <div className="text-center font-sans">
-            <div className="border-b border-hairline pb-4 mb-6">
-              <span className="inline-block bg-surface border border-hairline text-steel text-2xs font-semibold px-2 py-0.5 rounded">자격증 증빙</span>
-              <h2 className="text-xl md:text-2xl font-bold mt-2 text-ink">자격증 증빙 사본 통합본</h2>
-              <p className="text-stone text-xs mt-1">자격 검정 기관에서 발급한 공식 자격증 사본 모음입니다.</p>
-            </div>
-            <div className="flex flex-col items-center">
-              <img src={certBadges} alt="3개 자격증 통합 사본" className="max-w-full h-auto max-h-[500px] border border-hairline rounded shadow-md mb-4" />
-              <p className="text-stone text-xs">ADsP · 사회조사분석사 2급 · 컴퓨터활용능력 1급</p>
-            </div>
-          </div>
-        );
+
       default:
         return null;
     }

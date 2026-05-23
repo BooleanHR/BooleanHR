@@ -163,7 +163,7 @@ export const Skills: React.FC<SkillsProps> = ({ onOpenModal }) => {
         }`}>
           <div className="text-xs font-semibold uppercase tracking-wider text-charcoal mb-5">취득 자격증</div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             
             {/* Cert 1: ADsP */}
             <div className="bg-canvas border border-hairline rounded-card p-5 flex flex-col gap-2 relative shadow-xs hover:shadow-sm transition-all duration-200">
@@ -213,26 +213,6 @@ export const Skills: React.FC<SkillsProps> = ({ onOpenModal }) => {
               <div className="text-sm font-bold text-ink tracking-tight mt-1">컴활 1급</div>
               <div className="text-[11px] text-slate font-medium">컴퓨터활용능력 1급</div>
               <div className="text-[10px] text-stone mt-auto">2023 · 대한상공회의소</div>
-              <div className="text-[10px] text-stone/45 absolute bottom-3 right-4 opacity-0 group-hover:opacity-100 transition-opacity">🔍 보기</div>
-            </div>
-
-            {/* Cert 4: 자격증 증빙 통합본 - 모달 트리거 */}
-            <div 
-              onClick={() => onOpenModal('cert-image-zoom')}
-              className="bg-canvas border border-hairline rounded-card p-5 flex flex-col gap-2 relative shadow-xs hover:shadow-sm hover:border-steel transition-all duration-200 cursor-pointer group"
-              role="button"
-              tabIndex={0}
-            >
-              <div className="text-stone group-hover:text-ink transition-colors">
-                <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
-                  <rect x="4" y="4" width="20" height="20" rx="2" stroke="currentColor" stroke-width="1.2" />
-                  <path d="M10 18l4-8 4 8" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
-                  <circle cx="14" cy="10" r="1" fill="currentColor" />
-                </svg>
-              </div>
-              <div className="text-sm font-bold text-ink tracking-tight mt-1">자격증 증빙</div>
-              <div className="text-[11px] text-slate font-medium">3개 자격증 통합 사본</div>
-              <div className="text-[10px] text-stone mt-auto">ADsP · 사조사 · 컴활</div>
               <div className="text-[10px] text-stone/45 absolute bottom-3 right-4 opacity-0 group-hover:opacity-100 transition-opacity">🔍 보기</div>
             </div>
 
