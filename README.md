@@ -12,7 +12,7 @@
 
 ### 📊 데이터 기반 채용 설계 및 프로세스 최적화 (Data-Driven HR)
 *   **산업심리학 및 응용통계학**을 복수 전공하여 인적자원 개발(HRD/HRM)과 통계적 검증에 강점이 있습니다.
-*   **ADsP, 사회조사분석사, 빅데이터분석기사** 자격을 바탕으로 서류/필기 평가 기준의 신뢰도를 분석하고 채용 프로세스 내 비효율을 진단합니다.
+*   **ADsP, 사회조사분석사 2급** 자격을 바탕으로 서류/필기 평가 기준의 신뢰도를 분석하고 채용 프로세스 내 비효율을 진단합니다.
 *   기존 7일이 소요되던 증명서 진위 확인 프로세스를 **서류 선제 수집 및 병렬 검증 프로세스**로 전환하여 **소요 시간을 57% 단축**했습니다.
 
 ### ✍️ 높은 입찰 성공률과 전략적 RFP 기획 (Strategic Proposal)
@@ -51,8 +51,8 @@
 *   **Collaboration:** Notion, Slack, Google Workspace
 
 ### **Certifications (전문 자격)**
-*   **데이터분석:** 빅데이터분석기사 (2024), ADsP 데이터분석 준전문가 (2022), 사회조사분석사 2급 (2022)
-*   **IT/행정:** 정보처리기사 (2024), 컴퓨터활용능력 1급 (2023)
+*   **데이터분석:** ADsP 데이터분석 준전문가 (2022), 사회조사분석사 2급 (2022)
+*   **IT/행정:** 컴퓨터활용능력 1급 (2023)
 
 ---
 
@@ -128,14 +128,14 @@ graph TD
 *   **스타일링 및 테마:**
     *   [index.css](file:///c:/Users/user/Desktop/vibe%20codeing/BooleanHR/src/index.css): Tailwind CSS v4 `@theme` 기반 그레이스케일 토큰 확장 및 글로벌 애니메이션 정의.
 *   **핵심 컴포넌트 (`src/components/`):**
-    *   `Navigation.tsx`: 상단 스크롤 흐림 효과(Sticky) 및 햄버거 토글 모바일 메뉴.
-    *   `Hero.tsx`: 모노그램 로고 브랜딩 및 스크롤 다운 인디케이터.
-    *   `About.tsx`: KPI 데이터 수치 카운터 및 진행도 바 애니메이션.
-    *   `Achievements.tsx`: SVG 기반 입찰성공률 도넛 차트 및 목표대비 지원율 게이지 차트.
-    *   `Skills.tsx`: 6대 스킬 게이지 바, SVG radar 역량 분포 차트, 3개 취득 자격증 카드.
-    *   `Modal.tsx`: 조건부 마운트 기반의 자기소개서 전문 및 자격증 이미지 증빙 팝업.
+    *   [Navigation.tsx](file:///c:/Users/user/Desktop/vibe%20codeing/BooleanHR/src/components/Navigation.tsx): 상단 스크롤 흐림 효과(Sticky) 및 햄버거 토글 모바일 메뉴.
+    *   [Hero.tsx](file:///c:/Users/user/Desktop/vibe%20codeing/BooleanHR/src/components/Hero.tsx): 모노그램 로고 브랜딩 및 스크롤 다운 인디케이터.
+    *   [About.tsx](file:///c:/Users/user/Desktop/vibe%20codeing/BooleanHR/src/components/About.tsx): KPI 데이터 수치 카운터 및 진행도 바 애니메이션.
+    *   [Achievements.tsx](file:///c:/Users/user/Desktop/vibe%20codeing/BooleanHR/src/components/Achievements.tsx): SVG 기반 입찰성공률 도넛 차트 및 목표대비 지원율 게이지 차트.
+    *   [Skills.tsx](file:///c:/Users/user/Desktop/vibe%20codeing/BooleanHR/src/components/Skills.tsx): 6대 스킬 게이지 바, SVG radar 역량 분포 차트, 3개 취득 자격증 카드.
+    *   [Modal.tsx](file:///c:/Users/user/Desktop/vibe%20codeing/BooleanHR/src/components/Modal.tsx): 조건부 마운트 기반의 자기소개서 전문 및 자격증 이미지 증빙 팝업.
 *   **커스텀 훅:**
-    *   `useIntersectionObserver.ts`: 뷰포트 진입 감지 기반 스크롤 reveal 및 그래프 애니메이션 제어.
+    *   [useIntersectionObserver.ts](file:///c:/Users/user/Desktop/vibe%20codeing/BooleanHR/src/hooks/useIntersectionObserver.ts): 뷰포트 진입 감지 기반 스크롤 reveal 및 그래프 애니메이션 제어.
 
 ### 3. 로컬 실행 및 재현 방법
 

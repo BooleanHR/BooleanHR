@@ -1,283 +1,309 @@
-/* ============================================
-   유용완 Portfolio — Main.js v2
-   시각화 요소 애니메이션 통합 관리
-   ============================================ */
-(function () {
-  'use strict';
-
-  /* ── 1. Scroll Reveal ── */
-  function initScrollReveal() {
-    const els = document.querySelectorAll('.reveal');
-    if (!els.length) return;
-    const io = new IntersectionObserver(
-      (entries) => entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('reveal--visible'); io.unobserve(e.target); }
-      }),
-      { threshold: 0.12, rootMargin: '0px 0px -32px 0px' }
-    );
-    els.forEach(el => io.observe(el));
-  }
-
-  /* ── 2. Hero Fade ── */
-  function initHeroFade() {
-    const content = document.querySelector('.hero__content');
-    const indicator = document.querySelector('.hero__scroll-indicator');
-    if (!content) return;
-    let ticking = false;
-    window.addEventListener('scroll', () => {
-      if (ticking) return;
-      requestAnimationFrame(() => {
-        const p = Math.min(window.scrollY / (window.innerHeight * 0.45), 1);
-        content.style.opacity = 1 - p;
-        content.style.transform = `translateY(${p * -28}px)`;
-        if (indicator) indicator.style.opacity = 1 - p * 2.5;
-        ticking = false;
-      });
-      ticking = true;
-    }, { passive: true });
-  }
-
-  /* ── 3. Number Counter ── */
-  function countUp(el, target, duration, suffix) {
-    const start = performance.now();
-    function step(now) {
-      const p = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - p, 4);
-      el.textContent = Math.floor(eased * target) + (suffix || '');
-      if (p < 1) requestAnimationFrame(step);
-      else el.textContent = target + (suffix || '');
+document.addEventListener('DOMContentLoaded', () => {
+  // ══════════════════════════════════════
+  // 1. SCROLL EFFECT ON NAVIGATION
+  // ══════════════════════════════════════
+  const nav = document.getElementById('mainNav');
+  const handleScrollNav = () => {
+    if (window.scrollY > 20) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
     }
-    requestAnimationFrame(step);
-  }
+  };
+  window.addEventListener('scroll', handleScrollNav);
+  handleScrollNav(); // Initial check
 
-  function initKpiCounters() {
-    const cards = document.querySelectorAll('.kpi-card__value[data-target]');
-    if (!cards.length) return;
-    const io = new IntersectionObserver(
-      (entries) => entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        const target = parseInt(e.target.dataset.target, 10);
-        countUp(e.target, target, 1000);
-        // animate bar
-        const bar = e.target.closest('.kpi-card')?.querySelector('.kpi-card__bar-fill');
-        if (bar) { setTimeout(() => { bar.style.width = bar.style.width || '0%'; }, 100); }
-        io.unobserve(e.target);
-      }),
-      { threshold: 0.5 }
-    );
-    cards.forEach(el => io.observe(el));
-  }
 
-  /* ── 4. KPI Bar Fills (trigger on section visible) ── */
-  function initKpiBars() {
-    const fills = document.querySelectorAll('.kpi-card__bar-fill');
-    if (!fills.length) return;
-    const io = new IntersectionObserver(
-      (entries) => entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        // already has width set inline, just ensure transition fires
-        const w = e.target.style.width;
-        e.target.style.width = '0%';
-        requestAnimationFrame(() => { e.target.style.width = w; });
-        io.unobserve(e.target);
-      }),
-      { threshold: 0.3 }
-    );
-    fills.forEach(el => io.observe(el));
-  }
+  // ══════════════════════════════════════
+  // 2. MOBILE HAMBURGER MENU
+  // ══════════════════════════════════════
+  const navHamburger = document.getElementById('navHamburger');
+  const navMobile = document.getElementById('navMobile');
+  const navLinks = document.querySelectorAll('#navMobile .nav__link');
 
-  /* ── 5. Donut Chart ── */
-  function initDonutCharts() {
-    const arcs = document.querySelectorAll('.donut-chart__fill[data-value]');
-    if (!arcs.length) return;
-    const io = new IntersectionObserver(
-      (entries) => entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        const val = parseFloat(e.target.dataset.value); // e.g. 113 of 188.5
-        e.target.style.strokeDasharray = `${val} ${188.5 - val}`;
-        io.unobserve(e.target);
-      }),
-      { threshold: 0.4 }
-    );
-    arcs.forEach(el => io.observe(el));
-  }
-
-  /* ── 6. Compare Chart Bars ── */
-  function initCompareBars() {
-    const bars = document.querySelectorAll('.compare-chart__bar');
-    if (!bars.length) return;
-    const io = new IntersectionObserver(
-      (entries) => entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        const targetW = e.target.dataset.finalWidth || e.target.style.width;
-        e.target.style.width = '0%';
-        setTimeout(() => { e.target.style.width = targetW; }, 80);
-        io.unobserve(e.target);
-      }),
-      { threshold: 0.3 }
-    );
-    bars.forEach(bar => {
-      bar.dataset.finalWidth = bar.style.width;
-      bar.style.width = '0%';
-      io.observe(bar);
+  if (navHamburger && navMobile) {
+    navHamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navHamburger.classList.toggle('open');
+      navMobile.classList.toggle('open');
     });
-  }
 
-  /* ── 7. Gauge Fill ── */
-  function initGaugeFills() {
-    const paths = document.querySelectorAll('.gauge-fill[data-value]');
-    if (!paths.length) return;
-    const io = new IntersectionObserver(
-      (entries) => entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        const val = parseFloat(e.target.dataset.value); // full = 125.7
-        e.target.style.strokeDasharray = `${val} ${125.7 * 2 - val}`;
-        io.unobserve(e.target);
-      }),
-      { threshold: 0.4 }
-    );
-    paths.forEach(p => io.observe(p));
-  }
-
-  /* ── 8. Skill Bars ── */
-  function initSkillBars() {
-    const fills = document.querySelectorAll('.skill-bar-item__fill[data-width]');
-    if (!fills.length) return;
-    const io = new IntersectionObserver(
-      (entries) => entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        const pct = e.target.dataset.width;
-        e.target.style.width = pct + '%';
-        io.unobserve(e.target);
-      }),
-      { threshold: 0.2 }
-    );
-    fills.forEach(el => io.observe(el));
-  }
-
-  /* ── 9. GPA Bar ── */
-  function initGpaBar() {
-    const fills = document.querySelectorAll('.gpa-visual__fill[data-width]');
-    if (!fills.length) return;
-    const io = new IntersectionObserver(
-      (entries) => entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        e.target.style.width = e.target.dataset.width + '%';
-        io.unobserve(e.target);
-      }),
-      { threshold: 0.3 }
-    );
-    fills.forEach(el => io.observe(el));
-  }
-
-  /* ── 10. Radar Chart Animation ── */
-  function initRadar() {
-    const polygon = document.querySelector('.radar-data');
-    const dots = document.querySelectorAll('.radar-dot');
-    if (!polygon) return;
-    const io = new IntersectionObserver(
-      (entries) => entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        polygon.style.opacity = '1';
-        dots.forEach(d => { d.style.opacity = '1'; });
-        io.unobserve(e.target);
-      }),
-      { threshold: 0.3 }
-    );
-    io.observe(polygon);
-  }
-
-  /* ── 11. Footer Year ── */
-  function initFooterYear() {
-    const el = document.getElementById('footer-year');
-    if (el) el.textContent = new Date().getFullYear();
-  }
-
-  /* ── 12. Modal Handlers ── */
-  function initModals() {
-    const overlay = document.getElementById('modalOverlay');
-    const closeBtn = document.getElementById('modalClose');
-    const body = document.getElementById('modalBody');
-    const triggers = document.querySelectorAll('[data-modal]');
-
-    if (!overlay || !closeBtn || !body) return;
-
-    function openModal(modalId) {
-      const template = document.getElementById(`tpl-${modalId}`);
-      if (!template) return;
-
-      // Clear previous content
-      body.innerHTML = '';
-
-      // Clone template content and append
-      const clone = template.content.cloneNode(true);
-      body.appendChild(clone);
-
-      // Show modal
-      overlay.classList.add('modal-overlay--active');
-      document.body.classList.add('modal-open');
-
-      // Accessibility: Focus close button
-      closeBtn.focus();
-    }
-
-    function closeModal() {
-      overlay.classList.remove('modal-overlay--active');
-      document.body.classList.remove('modal-open');
-      setTimeout(() => {
-        body.innerHTML = '';
-      }, 300); // clear after fade-out transition
-    }
-
-    triggers.forEach(trigger => {
-      trigger.addEventListener('click', (e) => {
-        e.preventDefault();
-        const modalId = trigger.getAttribute('data-modal');
-        if (modalId) {
-          openModal(modalId);
-        }
-      });
-
-      trigger.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          const modalId = trigger.getAttribute('data-modal');
-          if (modalId) {
-            openModal(modalId);
-          }
-        }
+    // Close menu when clicking a link
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navHamburger.classList.remove('open');
+        navMobile.classList.remove('open');
       });
     });
 
-    closeBtn.addEventListener('click', closeModal);
-
-    overlay.addEventListener('click', (e) => {
-      // Close only if click is directly on the overlay backdrop
-      if (e.target === overlay) {
-        closeModal();
-      }
-    });
-
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && overlay.classList.contains('modal-overlay--active')) {
-        closeModal();
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!nav.contains(e.target) && !navMobile.contains(e.target)) {
+        navHamburger.classList.remove('open');
+        navMobile.classList.remove('open');
       }
     });
   }
 
-  /* ── Init All ── */
-  document.addEventListener('DOMContentLoaded', () => {
-    initScrollReveal();
-    initHeroFade();
-    initKpiCounters();
-    initKpiBars();
-    initDonutCharts();
-    initCompareBars();
-    initGaugeFills();
-    initSkillBars();
-    initGpaBar();
-    initRadar();
-    initFooterYear();
-    initModals();
+
+  // ══════════════════════════════════════
+  // 3. INTERSECTION OBSERVER FOR REVEAL & ANIMATIONS
+  // ══════════════════════════════════════
+  
+  // Hero logo transition immediately
+  const heroLogo = document.getElementById('heroLogo');
+  if (heroLogo) {
+    setTimeout(() => {
+      heroLogo.classList.add('visible');
+    }, 150);
+  }
+
+  // General reveal animation
+  const revealElements = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
   });
-})();
+
+  revealElements.forEach(el => revealObserver.observe(el));
+
+
+  // ══════════════════════════════════════
+  // 4. CHART & VALUE ANIMATIONS (ON INTERSECT)
+  // ══════════════════════════════════════
+
+  // Counter animation helper
+  const animateCounter = (element) => {
+    const target = parseInt(element.getAttribute('data-target'), 10);
+    const duration = 1200; // ms
+    const startTime = performance.now();
+
+    const updateCounter = (currentTime) => {
+      const elapsedTime = currentTime - startTime;
+      const progress = Math.min(elapsedTime / duration, 1);
+      
+      // Easing out cubic
+      const easeProgress = 1 - Math.pow(1 - progress, 3);
+      const currentValue = Math.floor(easeProgress * target);
+
+      element.textContent = currentValue;
+
+      if (progress < 1) {
+        requestAnimationFrame(updateCounter);
+      } else {
+        element.textContent = target;
+      }
+    };
+    requestAnimationFrame(updateCounter);
+  };
+
+  // Observe and trigger stats/charts
+  const statsSection = document.querySelector('#about');
+  const statsObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Trigger counters
+        const counters = entry.target.querySelectorAll('.kpi-card__value span[data-target]');
+        counters.forEach(c => animateCounter(c));
+
+        // Trigger KPI progress bars
+        const bars = entry.target.querySelectorAll('.kpi-card__bar-fill');
+        bars.forEach(bar => {
+          const width = bar.getAttribute('data-width');
+          bar.style.width = `${width}%`;
+        });
+        
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  if (statsSection) {
+    statsObserver.observe(statsSection);
+  }
+
+  // Key Achievements Section (Charts)
+  const achSection = document.querySelector('#achievements');
+  const achObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Donut Chart
+        const donut = entry.target.querySelector('.donut-chart__fill');
+        if (donut) {
+          const val = donut.getAttribute('data-value');
+          donut.style.strokeDasharray = `${val} 188.5`;
+        }
+
+        // Gauge Chart
+        const gauge = entry.target.querySelector('.gauge-fill');
+        if (gauge) {
+          const val = gauge.getAttribute('data-value');
+          gauge.style.strokeDasharray = `${val} 125.7`;
+        }
+
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  if (achSection) {
+    achObserver.observe(achSection);
+  }
+
+  // Skills & Tools Section (Skill bars & Radar Chart)
+  const skillsSection = document.querySelector('#skills');
+  const skillsObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Skill Bars
+        const fillBars = entry.target.querySelectorAll('.skill-bar-item__fill');
+        fillBars.forEach(bar => {
+          const w = bar.getAttribute('data-width');
+          bar.style.width = `${w}%`;
+        });
+
+        // Radar Chart
+        const radarData = entry.target.querySelector('.radar-data');
+        const radarDots = entry.target.querySelectorAll('.radar-dot');
+        if (radarData) {
+          radarData.style.opacity = '1';
+        }
+        radarDots.forEach(dot => {
+          dot.style.opacity = '1';
+        });
+
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  if (skillsSection) {
+    skillsObserver.observe(skillsSection);
+  }
+
+  // Education Section (GPA Bar)
+  const eduSection = document.querySelector('#education');
+  const eduObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const gpaFill = entry.target.querySelector('.gpa-visual__fill');
+        if (gpaFill) {
+          const w = gpaFill.getAttribute('data-width');
+          gpaFill.style.width = `${w}%`;
+        }
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  if (eduSection) {
+    eduObserver.observe(eduSection);
+  }
+
+
+  // ══════════════════════════════════════
+  // 5. MODAL SYSTEM
+  // ══════════════════════════════════════
+  const modalOverlay = document.getElementById('modalOverlay');
+  const modalPanel = document.getElementById('modalPanel');
+  const modalClose = document.getElementById('modalClose');
+  const modalBody = document.getElementById('modalBody');
+
+  const openModal = (templateId) => {
+    const template = document.getElementById(`tpl-${templateId}`);
+    if (!template || !modalOverlay || !modalBody) return;
+
+    // Clear previous modal content
+    modalBody.innerHTML = '';
+    
+    // Import and append template content
+    const clone = document.importNode(template.content, true);
+    modalBody.appendChild(clone);
+
+    // Show modal with animation
+    modalOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+
+    // Focus close button for accessibility
+    setTimeout(() => {
+      if (modalClose) modalClose.focus();
+    }, 50);
+  };
+
+  const closeModal = () => {
+    if (!modalOverlay) return;
+    modalOverlay.classList.remove('open');
+    document.body.style.overflow = ''; // Restore scroll
+
+    // Clear body after transitions finish
+    setTimeout(() => {
+      if (modalBody) modalBody.innerHTML = '';
+    }, 300);
+  };
+
+  // Event Delegation for modal triggers
+  document.addEventListener('click', (e) => {
+    // Find closest click target with data-modal attribute
+    const trigger = e.target.closest('[data-modal]');
+    if (trigger) {
+      e.preventDefault();
+      const modalId = trigger.getAttribute('data-modal');
+      openModal(modalId);
+    }
+  });
+
+  if (modalClose) {
+    modalClose.addEventListener('click', closeModal);
+  }
+
+  if (modalOverlay) {
+    modalOverlay.addEventListener('click', (e) => {
+      // Close only if clicking the overlay background itself, not the panel
+      if (e.target === modalOverlay) {
+        closeModal();
+      }
+    });
+  }
+
+  // Keyboard accessibility for modal (ESC key)
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalOverlay && modalOverlay.classList.contains('open')) {
+      closeModal();
+    }
+  });
+
+
+  // ══════════════════════════════════════
+  // 6. ACTIVE NAVIGATION LINK ON SCROLL
+  // ══════════════════════════════════════
+  const sections = document.querySelectorAll('section[id]');
+  const desktopLinks = document.querySelectorAll('#navLinks .nav__link');
+
+  const handleScrollActiveNav = () => {
+    const scrollY = window.pageYOffset + 120; // Offset for sticky nav
+
+    sections.forEach(current => {
+      const sectionHeight = current.offsetHeight;
+      const sectionTop = current.offsetTop;
+      const sectionId = current.getAttribute('id');
+
+      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+        desktopLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${sectionId}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  };
+  window.addEventListener('scroll', handleScrollActiveNav);
+  handleScrollActiveNav(); // Run once initially
+});

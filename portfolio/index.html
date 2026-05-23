@@ -4,13 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="유용완 — 채용대행 PM 포트폴리오. 공공기관 채용 프로젝트 PM 전문가.">
+  <meta name="description" content="유용완 — 채용대행 PM 포트폴리오. 공공기관 채용 프로젝트 PM 전문가. End-to-End 채용 컨설팅.">
   <meta name="author" content="유용완 Yoo Yongwan">
+  <meta property="og:title" content="유용완 — Recruitment Consulting PM">
+  <meta property="og:description" content="공공기관 채용대행 PM. 3년 3개월+ 경력, CS 만족도 100점, 입찰성공률 60%.">
   <title>유용완 — Recruitment Consulting PM</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&family=JetBrains+Mono:wght@300;400&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon"
@@ -20,30 +22,82 @@
 <body>
 
   <!-- ══════════════ MODAL OVERLAY ══════════════ -->
-  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true">
     <div class="modal-panel" id="modalPanel">
       <button class="modal-close" id="modalClose" aria-label="닫기">✕</button>
       <div class="modal-body" id="modalBody"></div>
     </div>
   </div>
 
+
+  <!-- ══════════════════════════════════════
+     NAVIGATION
+     ══════════════════════════════════════ -->
+  <nav class="nav" id="mainNav">
+    <div class="nav__inner">
+      <a href="#hero" class="nav__logo" id="nav-logo">
+        <img src="img/logo_yyw.png" alt="YYW 모노그램" class="nav__logo-img">
+        <span class="nav__logo-text">유용완</span>
+      </a>
+      <div class="nav__links" id="navLinks">
+        <a href="#about" class="nav__link" id="nav-about">About</a>
+        <a href="#achievements" class="nav__link" id="nav-ach">성과</a>
+        <a href="#career" class="nav__link" id="nav-career">Career</a>
+        <a href="#projects" class="nav__link" id="nav-projects">Projects</a>
+        <a href="#skills" class="nav__link" id="nav-skills">Skills</a>
+        <a href="#education" class="nav__link" id="nav-edu">Education</a>
+        <a href="mailto:yongwan5871@gmail.com" class="nav__cta" id="nav-contact">연락하기</a>
+      </div>
+      <button class="nav__hamburger" id="navHamburger" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav__mobile" id="navMobile">
+      <a href="#about" class="nav__link" id="nav-m-about">About</a>
+      <a href="#achievements" class="nav__link" id="nav-m-ach">Key Achievements</a>
+      <a href="#career" class="nav__link" id="nav-m-career">Career</a>
+      <a href="#projects" class="nav__link" id="nav-m-proj">Key Projects</a>
+      <a href="#skills" class="nav__link" id="nav-m-skills">Skills</a>
+      <a href="#education" class="nav__link" id="nav-m-edu">Education</a>
+      <a href="mailto:yongwan5871@gmail.com" class="nav__link" id="nav-m-contact">연락하기 →</a>
+    </div>
+  </nav>
+
+
   <!-- ══════════════════════════════════════
      HERO
      ══════════════════════════════════════ -->
   <section class="hero" id="hero">
-    <div class="hero__bg"></div>
+    <div class="hero__grid"></div>
+    <div class="hero__glow"></div>
+
     <div class="hero__content">
+      <img src="img/logo_yyw.png" alt="YYW 모노그램 로고" class="hero__logo" id="heroLogo">
+
       <p class="hero__eyebrow reveal">Portfolio · 2025</p>
-      <h1 class="hero__name-kr reveal reveal--delay-1">유용완</h1>
-      <p class="hero__name-en reveal reveal--delay-2">YOO YONGWAN</p>
-      <div class="hero__role-wrap reveal reveal--delay-3">
+      <h1 class="hero__name-kr reveal reveal--d1">유용완</h1>
+      <p class="hero__name-en reveal reveal--d2">YOO YONGWAN</p>
+
+      <div class="hero__role-wrap reveal reveal--d3">
+        <div class="hero__role-dot"></div>
         <span class="hero__role">Recruitment Consulting PM</span>
       </div>
-      <p class="hero__motto reveal reveal--delay-4">
-        "해라, 진심을 다해서"<br>
+
+      <p class="hero__motto reveal reveal--d4">
+        "해라, 진심을 다해서"
         <em>GO for it, Go whole heart</em>
       </p>
+
+      <div class="hero__cta-row reveal reveal--d4">
+        <a href="mailto:yongwan5871@gmail.com" class="btn btn-on-dark" id="hero-email-btn">
+          ✉ 이메일 연락하기
+        </a>
+        <a href="#projects" class="btn btn-ghost-on-dark" id="hero-proj-btn">
+          프로젝트 보기 ↓
+        </a>
+      </div>
     </div>
+
     <div class="hero__scroll-indicator">
       <div class="hero__scroll-line"></div>
       <span>Scroll</span>
@@ -59,7 +113,7 @@
       <p class="section-label reveal">About</p>
 
       <div class="about-grid">
-        <div class="about-grid__text reveal">
+        <div class="reveal">
           <p class="about__text">
             채용대행 분야에서 <strong>공공기관 및 공기업</strong>을 대상으로
             다양한 채용 프로젝트를 성공적으로 이끌어온 PM입니다.
@@ -67,42 +121,48 @@
             <strong>End-to-End 실행 경험</strong>을 보유하고 있으며,
             현장의 비효율을 데이터와 시스템으로 개선합니다.
           </p>
-          <p class="about__text" style="margin-top:14px;">
+          <p class="about__text">
             Python, SPSS 등 <strong>통계 분석 도구</strong>와 Microsoft Excel을 활용한
             <strong>RFP 작성 역량</strong>을 바탕으로, 단순 채용 운영을 넘어
             고객사의 채용 프로세스 전반을 컨설팅합니다.
           </p>
-          <!-- 자기소개서 열기 버튼 -->
-          <button class="read-more-btn reveal reveal--delay-1" data-modal="cover-letter" style="margin-top:28px;">
+          <button class="read-more-btn reveal reveal--d1" data-modal="cover-letter" style="margin-top:28px;"
+            id="btn-cover-letter">
             <span class="read-more-btn__icon">◎</span>
             자기소개서 전문 읽기
             <span class="read-more-btn__arrow">→</span>
           </button>
         </div>
 
-        <div class="kpi-stack reveal reveal--delay-1">
+        <div class="kpi-stack reveal reveal--d1">
           <div class="kpi-card">
-            <div class="kpi-card__value" data-target="3">0</div>
-            <div class="kpi-card__unit">년 3개월+</div>
+            <div class="kpi-card__value">
+              <span data-target="3">0</span>
+              <span class="kpi-card__unit">년 3개월+</span>
+            </div>
             <div class="kpi-card__label">채용대행 경력</div>
             <div class="kpi-card__bar">
-              <div class="kpi-card__bar-fill" style="width:75%"></div>
+              <div class="kpi-card__bar-fill" data-width="75"></div>
             </div>
           </div>
           <div class="kpi-card">
-            <div class="kpi-card__value" data-target="10">0</div>
-            <div class="kpi-card__unit">건 이상</div>
+            <div class="kpi-card__value">
+              <span data-target="10">0</span>
+              <span class="kpi-card__unit">건 이상</span>
+            </div>
             <div class="kpi-card__label">연간 PM 프로젝트</div>
             <div class="kpi-card__bar">
-              <div class="kpi-card__bar-fill" style="width:85%"></div>
+              <div class="kpi-card__bar-fill" data-width="85"></div>
             </div>
           </div>
           <div class="kpi-card kpi-card--accent">
-            <div class="kpi-card__value" data-target="100">0</div>
-            <div class="kpi-card__unit">점</div>
+            <div class="kpi-card__value">
+              <span data-target="100">0</span>
+              <span class="kpi-card__unit">점</span>
+            </div>
             <div class="kpi-card__label">2024 고객사 CS 만족도</div>
             <div class="kpi-card__bar">
-              <div class="kpi-card__bar-fill" style="width:100%"></div>
+              <div class="kpi-card__bar-fill" data-width="100"></div>
             </div>
           </div>
         </div>
@@ -112,60 +172,67 @@
 
 
   <!-- ══════════════════════════════════════
-     ACHIEVEMENT DASHBOARD
+     KEY ACHIEVEMENTS
      ══════════════════════════════════════ -->
-  <section id="achievements" class="section-dark">
+  <section id="achievements">
     <div class="container">
       <p class="section-label reveal">Key Achievements</p>
       <div class="dashboard">
 
-        <div class="dash-card reveal">
+        <!-- 입찰 성공률 — accent dark card -->
+        <div class="dash-card dash-card--accent reveal">
           <div class="dash-card__chart-wrap">
-            <svg class="donut-chart" viewBox="0 0 80 80" width="120" height="120">
-              <circle class="donut-chart__bg" cx="40" cy="40" r="30" fill="none" stroke="#1e1e1e" stroke-width="8" />
-              <circle class="donut-chart__fill" cx="40" cy="40" r="30" fill="none" stroke="#e0e0e0" stroke-width="8"
-                stroke-linecap="round" stroke-dasharray="0 188.5" stroke-dashoffset="47.1" data-value="113"
-                style="transition:stroke-dasharray 1.2s cubic-bezier(.4,0,.2,1)" />
-              <text x="40" y="37" text-anchor="middle" fill="#e8e8e8" font-size="13" font-family="Inter"
-                font-weight="300">60%</text>
-              <text x="40" y="50" text-anchor="middle" fill="#555" font-size="6.5" font-family="Inter">성공률</text>
+            <svg viewBox="0 0 80 80" width="100" height="100">
+              <circle cx="40" cy="40" r="30" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="7" />
+              <circle class="donut-chart__fill" cx="40" cy="40" r="30" fill="none" stroke="rgba(255,255,255,0.75)"
+                stroke-width="7" stroke-linecap="round" stroke-dasharray="0 188.5" stroke-dashoffset="47.1"
+                data-value="113" style="transition:stroke-dasharray 1.2s cubic-bezier(.4,0,.2,1)" />
+              <text x="40" y="37" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="13" font-family="Inter"
+                font-weight="700">60%</text>
+              <text x="40" y="50" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="7"
+                font-family="Inter">성공률</text>
             </svg>
           </div>
-          <div class="dash-card__content">
+          <div>
             <div class="dash-card__value">60<span class="dash-card__unit">%</span></div>
             <div class="dash-card__label">채용 사업 입찰 성공률</div>
-            <div class="dash-card__desc">전략적 제안서(RFP) 기획 및 데이터 기반 차별화로 달성</div>
+            <div class="dash-card__desc">전략적 제안서(RFP) 기획 및 데이터 기반 차별화</div>
           </div>
         </div>
 
-        <div class="dash-card reveal reveal--delay-1">
+        <!-- 계약 확대 -->
+        <div class="dash-card reveal reveal--d1">
           <div class="bar-chart-wrap">
             <div class="bar-chart">
               <div class="bar-chart__col">
-                <div class="bar-chart__bar" style="--h:60%;background:#333;"><span
-                    class="bar-chart__bar-label">1.2억</span></div>
+                <div class="bar-chart__bar" style="--h:60%;background:#d4d4d4;">
+                  <span class="bar-chart__bar-label">1.2억</span>
+                </div>
                 <div class="bar-chart__x">초기</div>
               </div>
               <div class="bar-chart__col">
-                <div class="bar-chart__bar" style="--h:85%;background:#555;"><span
-                    class="bar-chart__bar-label">1.7억</span></div>
-                <div class="bar-chart__x">+1차 추가</div>
+                <div class="bar-chart__bar" style="--h:85%;background:#a3a3a3;">
+                  <span class="bar-chart__bar-label">1.7억</span>
+                </div>
+                <div class="bar-chart__x">+1차</div>
               </div>
               <div class="bar-chart__col">
-                <div class="bar-chart__bar" style="--h:100%;background:#d0d0d0;"><span class="bar-chart__bar-label"
-                    style="color:#111;">2.0억</span></div>
+                <div class="bar-chart__bar" style="--h:100%;background:#1a1a1a;">
+                  <span class="bar-chart__bar-label" style="color:#fff;">2.0억</span>
+                </div>
                 <div class="bar-chart__x">최종</div>
               </div>
             </div>
           </div>
-          <div class="dash-card__content">
+          <div>
             <div class="dash-card__value">+66<span class="dash-card__unit">%</span></div>
             <div class="dash-card__label">단일 프로젝트 계약 규모 확대</div>
             <div class="dash-card__desc">1.2억 → 2.0억 · 선제적 추가 과업 제안으로 달성</div>
           </div>
         </div>
 
-        <div class="dash-card reveal reveal--delay-2">
+        <!-- 기간 단축 -->
+        <div class="dash-card reveal reveal--d2">
           <div class="compare-chart">
             <div class="compare-chart__row">
               <span class="compare-chart__label">기존</span>
@@ -181,27 +248,28 @@
             </div>
             <div class="compare-chart__note">병렬 프로세스 적용 → <strong>57% 단축</strong></div>
           </div>
-          <div class="dash-card__content">
+          <div>
             <div class="dash-card__value">−57<span class="dash-card__unit">%</span></div>
             <div class="dash-card__label">진위 확인 기간 단축</div>
             <div class="dash-card__desc">서류전형 선제 수집 + 병렬 검증 프로세스 설계</div>
           </div>
         </div>
 
-        <div class="dash-card reveal reveal--delay-3">
+        <!-- 지원율 -->
+        <div class="dash-card reveal reveal--d3">
           <div class="gauge-wrap">
-            <svg viewBox="0 0 100 60" width="140" height="84">
-              <path d="M10 55 A 40 40 0 0 1 90 55" fill="none" stroke="#1e1e1e" stroke-width="8"
+            <svg viewBox="0 0 100 60" width="120" height="72">
+              <path d="M10 55 A 40 40 0 0 1 90 55" fill="none" stroke="#e4e4e4" stroke-width="8"
                 stroke-linecap="round" />
-              <path class="gauge-fill" d="M10 55 A 40 40 0 0 1 90 55" fill="none" stroke="#e0e0e0" stroke-width="8"
+              <path class="gauge-fill" d="M10 55 A 40 40 0 0 1 90 55" fill="none" stroke="#1a1a1a" stroke-width="8"
                 stroke-linecap="round" stroke-dasharray="0 125.7" data-value="125.7"
                 style="transition:stroke-dasharray 1.4s cubic-bezier(.4,0,.2,1)" />
-              <text x="50" y="52" text-anchor="middle" fill="#e8e8e8" font-size="14" font-family="Inter"
-                font-weight="200">200%</text>
+              <text x="50" y="52" text-anchor="middle" fill="#1a1a1a" font-size="14" font-family="Inter"
+                font-weight="700">200%</text>
             </svg>
             <div class="gauge-wrap__label">목표 대비 지원율</div>
           </div>
-          <div class="dash-card__content">
+          <div>
             <div class="dash-card__value">200<span class="dash-card__unit">%+</span></div>
             <div class="dash-card__label">신설 기관 채용 지원율</div>
             <div class="dash-card__desc">단가협상·오프라인·협회 다이렉트 컨택 홍보 전략</div>
@@ -225,8 +293,10 @@
           <div class="timeline__dot"></div>
           <div class="timeline__header">
             <div>
-              <div class="timeline__period">2023.03 — Present <span
-                  class="timeline__badge timeline__badge--live">재직중</span></div>
+              <div class="timeline__period">
+                2023.03 — Present
+                <span class="timeline__badge timeline__badge--live">재직중</span>
+              </div>
               <div class="timeline__company">국내 대형 HR 컨설팅사</div>
               <div class="timeline__role">평가운영실 · 사원 → 주임 → 책임 매니저</div>
             </div>
@@ -245,7 +315,6 @@
             <div class="timeline__mini-stat">
               <span class="timeline__mini-num">10+</span>
               <span class="timeline__mini-label">연간 프로젝트</span>
-
             </div>
             <div class="timeline__mini-stat">
               <span class="timeline__mini-num">300+</span>
@@ -285,7 +354,7 @@
 
 
   <!-- ══════════════════════════════════════
-     PROJECTS  (기관명 최소화 · 수치/유형 강조)
+     KEY PROJECTS
      ══════════════════════════════════════ -->
   <section id="projects" class="section-dark">
     <div class="container">
@@ -318,7 +387,7 @@
               <span class="proj-card__year">2025</span>
               <span class="proj-card__type">신설 공공기관 · 첫 정규채용</span>
             </div>
-            <button class="proj-card__detail-btn" data-modal="story-1" aria-label="자세히 보기">자소서 보기 →</button>
+            <button class="proj-card__detail-btn" data-modal="story-1" id="btn-story-1">자세히 보기 →</button>
           </div>
           <div class="proj-card__scale-grid">
             <div class="proj-scale-item">
@@ -337,33 +406,35 @@
           <div class="proj-card__metrics">
             <div class="proj-metric">
               <div class="proj-metric__bar-wrap">
-                <div class="proj-metric__bar" style="width:100%;background:#d0d0d0;"></div>
+                <div class="proj-metric__bar" style="width:100%;"></div>
               </div>
-              <div class="proj-metric__row"><span class="proj-metric__label">지원율 달성</span><span
-                  class="proj-metric__val">200%+</span></div>
+              <div class="proj-metric__row">
+                <span class="proj-metric__label">지원율 달성</span>
+                <span class="proj-metric__val">200%+</span>
+              </div>
             </div>
             <div class="proj-metric">
               <div class="proj-metric__bar-wrap">
-                <div class="proj-metric__bar" style="width:100%;background:#888;"></div>
+                <div class="proj-metric__bar" style="width:100%;opacity:0.4;"></div>
               </div>
-              <div class="proj-metric__row"><span class="proj-metric__label">평가 공정성</span><span
-                  class="proj-metric__val">감사관 입회 만장일치</span></div>
+              <div class="proj-metric__row">
+                <span class="proj-metric__label">평가 공정성</span>
+                <span class="proj-metric__val">감사관 입회 만장일치</span>
+              </div>
             </div>
           </div>
-          <div class="proj-card__insight">
-            예산 한계 극복 · K-dart 기반 객관적 경력 산정 기준 설계 · 한정 예산 내 단가협상·협회 컨택
-          </div>
+          <div class="proj-card__insight">예산 한계 극복 · K-dart 기반 객관적 경력 산정 기준 설계 · 한정 예산 내 단가협상·협회 컨택</div>
         </div>
 
         <!-- P2 -->
-        <div class="proj-card reveal reveal--delay-1">
+        <div class="proj-card reveal reveal--d1">
           <div class="proj-card__top">
             <div class="proj-card__meta">
               <span class="proj-card__badge">PM</span>
               <span class="proj-card__year">2025</span>
               <span class="proj-card__type">준정부기관 · 대규모 정기채용</span>
             </div>
-            <button class="proj-card__detail-btn" data-modal="story-2" aria-label="자세히 보기">자소서 보기 →</button>
+            <button class="proj-card__detail-btn" data-modal="story-2" id="btn-story-2">자세히 보기 →</button>
           </div>
           <div class="proj-card__scale-grid">
             <div class="proj-scale-item">
@@ -382,34 +453,35 @@
           <div class="proj-card__metrics">
             <div class="proj-metric">
               <div class="proj-metric__bar-wrap">
-                <div class="proj-metric__bar" style="width:57%;background:#999;"></div>
-                <div class="proj-metric__bar" style="width:43%;background:#2a2a2a;margin-top:2px;"></div>
+                <div class="proj-metric__bar" style="width:43%;"></div>
               </div>
-              <div class="proj-metric__row"><span class="proj-metric__label">전형 기간</span><span
-                  class="proj-metric__val">7일 → 3일 (−57%)</span></div>
+              <div class="proj-metric__row">
+                <span class="proj-metric__label">전형 기간</span>
+                <span class="proj-metric__val">7일 → 3일 (−57%)</span>
+              </div>
             </div>
             <div class="proj-metric">
               <div class="proj-metric__bar-wrap">
-                <div class="proj-metric__bar" style="width:100%;background:#e0e0e0;"></div>
+                <div class="proj-metric__bar" style="width:100%;"></div>
               </div>
-              <div class="proj-metric__row"><span class="proj-metric__label">기관 만족도</span><span
-                  class="proj-metric__val">100점 만점</span></div>
+              <div class="proj-metric__row">
+                <span class="proj-metric__label">기관 만족도</span>
+                <span class="proj-metric__val">100점 만점</span>
+              </div>
             </div>
           </div>
-          <div class="proj-card__insight">
-            담당자 교체 3회 위기 극복 · 병렬 프로세스 설계로 불가능한 일정 돌파 · 차년도 재입찰 요청
-          </div>
+          <div class="proj-card__insight">담당자 교체 3회 위기 극복 · 병렬 프로세스 설계로 불가능한 일정 돌파 · 차년도 재입찰 요청</div>
         </div>
 
         <!-- P3 -->
-        <div class="proj-card reveal reveal--delay-2">
+        <div class="proj-card reveal reveal--d2">
           <div class="proj-card__top">
             <div class="proj-card__meta">
               <span class="proj-card__badge">PM</span>
               <span class="proj-card__year">2024</span>
               <span class="proj-card__type">에너지 공기업 · 연간 반복채용</span>
             </div>
-            <button class="proj-card__detail-btn" data-modal="story-3" aria-label="자세히 보기">자소서 보기 →</button>
+            <button class="proj-card__detail-btn" data-modal="story-3" id="btn-story-3">자세히 보기 →</button>
           </div>
           <div class="proj-card__scale-grid">
             <div class="proj-scale-item">
@@ -428,26 +500,28 @@
           <div class="proj-card__metrics">
             <div class="proj-metric">
               <div class="proj-metric__bar-wrap">
-                <div class="proj-metric__bar" style="width:60%;background:#555;"></div>
+                <div class="proj-metric__bar" style="width:60%;opacity:0.5;"></div>
               </div>
-              <div class="proj-metric__row"><span class="proj-metric__label">초기 계약</span><span
-                  class="proj-metric__val">1.2억</span></div>
+              <div class="proj-metric__row">
+                <span class="proj-metric__label">초기 계약</span>
+                <span class="proj-metric__val">1.2억</span>
+              </div>
             </div>
             <div class="proj-metric">
               <div class="proj-metric__bar-wrap">
-                <div class="proj-metric__bar" style="width:100%;background:#d0d0d0;"></div>
+                <div class="proj-metric__bar" style="width:100%;"></div>
               </div>
-              <div class="proj-metric__row"><span class="proj-metric__label">최종 계약</span><span
-                  class="proj-metric__val">2.0억 (+66%)</span></div>
+              <div class="proj-metric__row">
+                <span class="proj-metric__label">최종 계약</span>
+                <span class="proj-metric__val">2.0억 (+66%)</span>
+              </div>
             </div>
           </div>
-          <div class="proj-card__insight">
-            타겟 오프라인 홍보 역제안 · 4개 지역 순환 면접 현장 총괄 · 필기전형 추가 수의계약 수주
-          </div>
+          <div class="proj-card__insight">타겟 오프라인 홍보 역제안 · 4개 지역 순환 면접 현장 총괄 · 필기전형 추가 수의계약 수주</div>
         </div>
 
         <!-- P4 -->
-        <div class="proj-card reveal reveal--delay-3">
+        <div class="proj-card reveal reveal--d3">
           <div class="proj-card__top">
             <div class="proj-card__meta">
               <span class="proj-card__badge">PM</span>
@@ -472,33 +546,34 @@
           <div class="proj-card__metrics">
             <div class="proj-metric">
               <div class="proj-metric__bar-wrap">
-                <div class="proj-metric__bar" style="width:85%;background:#888;"></div>
+                <div class="proj-metric__bar" style="width:85%;"></div>
               </div>
-              <div class="proj-metric__row"><span class="proj-metric__label">동시 과업 수행</span><span
-                  class="proj-metric__val">타 PM 과업 병행</span></div>
+              <div class="proj-metric__row">
+                <span class="proj-metric__label">동시 과업 수행</span>
+                <span class="proj-metric__val">타 PM 과업 병행</span>
+              </div>
             </div>
             <div class="proj-metric">
               <div class="proj-metric__bar-wrap">
-                <div class="proj-metric__bar" style="width:100%;background:#777;"></div>
+                <div class="proj-metric__bar" style="width:100%;opacity:0.5;"></div>
               </div>
-              <div class="proj-metric__row"><span class="proj-metric__label">평가 척도 정립</span><span
-                  class="proj-metric__val">기준 체계 완성</span></div>
+              <div class="proj-metric__row">
+                <span class="proj-metric__label">평가 척도 정립</span>
+                <span class="proj-metric__val">기준 체계 완성</span>
+              </div>
             </div>
           </div>
-          <div class="proj-card__insight">
-            과거 민원 데이터 분석 → 평가 기준 체계 수립 · 화상면접 오류 선제 정정 대응
-          </div>
+          <div class="proj-card__insight">과거 민원 데이터 분석 → 평가 기준 체계 수립 · 화상면접 오류 선제 정정 대응</div>
         </div>
 
       </div>
 
-      <!-- CS 인터뷰 열기 -->
-      <div class="cs-interview-row reveal" style="margin-top:48px;">
+      <div class="cs-interview-row reveal" style="margin-top:40px;">
         <div class="cs-interview-row__text">
           <div class="cs-interview-row__title">고객사 CS 인터뷰 내용</div>
           <div class="cs-interview-row__desc">채용 프로젝트 수행 중 진행된 고객사 CS 평가 인터뷰 기록을 확인할 수 있습니다.</div>
         </div>
-        <button class="read-more-btn" data-modal="cs-interview">
+        <button class="read-more-btn" data-modal="cs-interview" id="btn-cs-interview">
           <span class="read-more-btn__icon">◉</span>
           CS 인터뷰 내용 보기
           <span class="read-more-btn__arrow">→</span>
@@ -513,49 +588,61 @@
      ══════════════════════════════════════ -->
   <section id="skills">
     <div class="container">
-      <p class="section-label reveal">Skills & Tools</p>
+      <p class="section-label reveal">Skills &amp; Tools</p>
 
       <div class="skills-layout">
         <div class="skill-bars reveal">
           <div class="skill-bar-group">
             <div class="skill-bar-item">
-              <div class="skill-bar-item__header"><span class="skill-bar-item__name">Microsoft Excel</span><span
-                  class="skill-bar-item__level">상</span></div>
+              <div class="skill-bar-item__header">
+                <span class="skill-bar-item__name">Microsoft Excel</span>
+                <span class="skill-bar-item__level">상</span>
+              </div>
               <div class="skill-bar-item__track">
                 <div class="skill-bar-item__fill" data-width="90"></div>
               </div>
             </div>
             <div class="skill-bar-item">
-              <div class="skill-bar-item__header"><span class="skill-bar-item__name">RFP 작성 / 제안서 기획</span><span
-                  class="skill-bar-item__level">상</span></div>
+              <div class="skill-bar-item__header">
+                <span class="skill-bar-item__name">RFP 작성 / 제안서 기획</span>
+                <span class="skill-bar-item__level">상</span>
+              </div>
               <div class="skill-bar-item__track">
                 <div class="skill-bar-item__fill" data-width="85"></div>
               </div>
             </div>
             <div class="skill-bar-item">
-              <div class="skill-bar-item__header"><span class="skill-bar-item__name">SPSS</span><span
-                  class="skill-bar-item__level">중</span></div>
+              <div class="skill-bar-item__header">
+                <span class="skill-bar-item__name">SPSS</span>
+                <span class="skill-bar-item__level">중</span>
+              </div>
               <div class="skill-bar-item__track">
                 <div class="skill-bar-item__fill" data-width="60"></div>
               </div>
             </div>
             <div class="skill-bar-item">
-              <div class="skill-bar-item__header"><span class="skill-bar-item__name">Python</span><span
-                  class="skill-bar-item__level">하</span></div>
+              <div class="skill-bar-item__header">
+                <span class="skill-bar-item__name">Python</span>
+                <span class="skill-bar-item__level">하</span>
+              </div>
               <div class="skill-bar-item__track">
                 <div class="skill-bar-item__fill" data-width="35"></div>
               </div>
             </div>
             <div class="skill-bar-item">
-              <div class="skill-bar-item__header"><span class="skill-bar-item__name">SAS</span><span
-                  class="skill-bar-item__level">하</span></div>
+              <div class="skill-bar-item__header">
+                <span class="skill-bar-item__name">SAS</span>
+                <span class="skill-bar-item__level">하</span>
+              </div>
               <div class="skill-bar-item__track">
                 <div class="skill-bar-item__fill" data-width="30"></div>
               </div>
             </div>
             <div class="skill-bar-item">
-              <div class="skill-bar-item__header"><span class="skill-bar-item__name">R / RStudio</span><span
-                  class="skill-bar-item__level">하</span></div>
+              <div class="skill-bar-item__header">
+                <span class="skill-bar-item__name">R / RStudio</span>
+                <span class="skill-bar-item__level">하</span>
+              </div>
               <div class="skill-bar-item__track">
                 <div class="skill-bar-item__fill" data-width="28"></div>
               </div>
@@ -563,73 +650,57 @@
           </div>
         </div>
 
-        <div class="radar-wrap reveal reveal--delay-1">
-          <svg class="radar" viewBox="0 0 240 240" width="240" height="240">
-            <g opacity="0.3">
-              <polygon points="120,30 195,75 195,165 120,210 45,165 45,75" fill="none" stroke="#333" stroke-width="1" />
-              <polygon points="120,55 172,85 172,155 120,185 68,155 68,85" fill="none" stroke="#2a2a2a"
+        <div class="radar-wrap reveal reveal--d1">
+          <svg viewBox="0 0 240 240" width="200" height="200">
+            <g opacity="0.15">
+              <polygon points="120,30 195,75 195,165 120,210 45,165 45,75" fill="none" stroke="#4a4a4a"
                 stroke-width="1" />
-              <polygon points="120,80 149,97 149,143 120,160 91,143 91,97" fill="none" stroke="#222" stroke-width="1" />
-              <line x1="120" y1="30" x2="120" y2="210" stroke="#252525" stroke-width="1" />
-              <line x1="120" y1="120" x2="195" y2="75" stroke="#252525" stroke-width="1" />
-              <line x1="120" y1="120" x2="195" y2="165" stroke="#252525" stroke-width="1" />
-              <line x1="120" y1="120" x2="120" y2="210" stroke="#252525" stroke-width="1" />
-              <line x1="120" y1="120" x2="45" y2="165" stroke="#252525" stroke-width="1" />
-              <line x1="120" y1="120" x2="45" y2="75" stroke="#252525" stroke-width="1" />
+              <polygon points="120,55 172,85 172,155 120,185 68,155 68,85" fill="none" stroke="#4a4a4a"
+                stroke-width="1" />
+              <polygon points="120,80 149,97 149,143 120,160 91,143 91,97" fill="none" stroke="#4a4a4a"
+                stroke-width="1" />
+              <line x1="120" y1="30" x2="120" y2="210" stroke="#c4c4c4" stroke-width="0.8" />
+              <line x1="120" y1="120" x2="195" y2="75" stroke="#c4c4c4" stroke-width="0.8" />
+              <line x1="120" y1="120" x2="195" y2="165" stroke="#c4c4c4" stroke-width="0.8" />
+              <line x1="120" y1="120" x2="120" y2="210" stroke="#c4c4c4" stroke-width="0.8" />
+              <line x1="120" y1="120" x2="45" y2="165" stroke="#c4c4c4" stroke-width="0.8" />
+              <line x1="120" y1="120" x2="45" y2="75" stroke="#c4c4c4" stroke-width="0.8" />
             </g>
-            <polygon class="radar-data" points="120,42 181,81 185,153 120,192 57,157 57,81"
-              fill="rgba(200,200,200,0.08)" stroke="#888" stroke-width="1.5"
-              style="opacity:0;transition:opacity 0.8s ease 0.3s" />
-            <text x="120" y="24" text-anchor="middle" fill="#666" font-size="8.5" font-family="Inter">PM 역량</text>
-            <text x="204" y="72" text-anchor="start" fill="#666" font-size="8.5" font-family="Inter">데이터 분석</text>
-            <text x="204" y="170" text-anchor="start" fill="#666" font-size="8.5" font-family="Inter">기획/제안</text>
-            <text x="120" y="222" text-anchor="middle" fill="#666" font-size="8.5" font-family="Inter">CS 관리</text>
-            <text x="38" y="170" text-anchor="end" fill="#666" font-size="8.5" font-family="Inter">협상</text>
-            <text x="38" y="72" text-anchor="end" fill="#666" font-size="8.5" font-family="Inter">리스크 관리</text>
-            <circle cx="120" cy="42" r="2.5" fill="#d0d0d0" class="radar-dot"
+            <polygon class="radar-data" points="120,42 181,81 185,153 120,192 57,157 57,81" fill="rgba(26,26,26,0.06)"
+              stroke="#1a1a1a" stroke-width="1.5" style="opacity:0;transition:opacity 0.8s ease 0.3s" />
+            <text x="120" y="22" text-anchor="middle" fill="#999" font-size="9" font-family="Inter">PM 역량</text>
+            <text x="204" y="72" text-anchor="start" fill="#999" font-size="9" font-family="Inter">데이터 분석</text>
+            <text x="204" y="170" text-anchor="start" fill="#999" font-size="9" font-family="Inter">기획/제안</text>
+            <text x="120" y="226" text-anchor="middle" fill="#999" font-size="9" font-family="Inter">CS 관리</text>
+            <text x="36" y="170" text-anchor="end" fill="#999" font-size="9" font-family="Inter">협상</text>
+            <text x="36" y="72" text-anchor="end" fill="#999" font-size="9" font-family="Inter">리스크 관리</text>
+            <circle cx="120" cy="42" r="2.5" fill="#1a1a1a" class="radar-dot"
               style="opacity:0;transition:opacity 0.8s ease 0.5s" />
-            <circle cx="181" cy="81" r="2.5" fill="#d0d0d0" class="radar-dot"
+            <circle cx="181" cy="81" r="2.5" fill="#1a1a1a" class="radar-dot"
               style="opacity:0;transition:opacity 0.8s ease 0.6s" />
-            <circle cx="185" cy="153" r="2.5" fill="#d0d0d0" class="radar-dot"
+            <circle cx="185" cy="153" r="2.5" fill="#1a1a1a" class="radar-dot"
               style="opacity:0;transition:opacity 0.8s ease 0.7s" />
-            <circle cx="120" cy="192" r="2.5" fill="#d0d0d0" class="radar-dot"
+            <circle cx="120" cy="192" r="2.5" fill="#1a1a1a" class="radar-dot"
               style="opacity:0;transition:opacity 0.8s ease 0.8s" />
-            <circle cx="57" cy="157" r="2.5" fill="#d0d0d0" class="radar-dot"
+            <circle cx="57" cy="157" r="2.5" fill="#1a1a1a" class="radar-dot"
               style="opacity:0;transition:opacity 0.8s ease 0.9s" />
-            <circle cx="57" cy="81" r="2.5" fill="#d0d0d0" class="radar-dot"
+            <circle cx="57" cy="81" r="2.5" fill="#1a1a1a" class="radar-dot"
               style="opacity:0;transition:opacity 0.8s ease 1.0s" />
           </svg>
           <div class="radar-caption">핵심 역량 분포</div>
         </div>
       </div>
 
-      <!-- 자격증 비주얼 -->
-      <div class="cert-section reveal" style="margin-top:64px;">
+      <!-- 자격증 -->
+      <div class="cert-section reveal" style="margin-top:56px;">
         <div class="cert-section__label">취득 자격증</div>
-
-        <!-- 자격증 증빙 이미지 뷰어 카드 -->
-        <div class="cert-image-card" data-modal="cert-image-zoom" role="button" tabindex="0"
-          aria-label="자격증 증빙 모음 크게 보기">
-          <div class="cert-image-card__img-wrap">
-            <img src="img/cert_badges.png" alt="취득 자격증 증빙 통합본" class="cert-image-card__img">
-            <div class="cert-image-card__overlay">
-              <span class="cert-image-card__zoom-icon">🔍</span>
-              <span class="cert-image-card__zoom-text">자격증 증빙 원본 크게 보기</span>
-            </div>
-          </div>
-          <div class="cert-image-card__info">
-            <h4 class="cert-image-card__title">자격증 증빙 통합 사본 (ADsP · 사조사 · 컴활 · 빅분기 · 정처기)</h4>
-            <p class="cert-image-card__desc">취득을 증명하는 공식 자격증 사본들을 하나로 취합한 이미지입니다. 이미지를 클릭하시면 원본 크기로 팝업 확대하여 상세 내역을 정밀하게
-              검토할 수 있습니다.</p>
-          </div>
-        </div>
-
         <div class="cert-cards">
-          <div class="cert-visual-card">
+
+          <div class="cert-visual-card" id="cert-adsp">
             <div class="cert-visual-card__icon">
-              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                <rect x="4" y="4" width="20" height="20" rx="2" stroke="#555" stroke-width="1.2" />
-                <path d="M9 14h10M9 10h6M9 18h8" stroke="#444" stroke-width="1" stroke-linecap="round" />
+              <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
+                <rect x="4" y="4" width="20" height="20" rx="2" stroke="#4a4a4a" stroke-width="1.2" />
+                <path d="M9 14h10M9 10h6M9 18h8" stroke="#999" stroke-width="1" stroke-linecap="round" />
               </svg>
             </div>
             <div class="cert-visual-card__name">ADsP</div>
@@ -637,11 +708,14 @@
             <div class="cert-visual-card__year">2022</div>
             <div class="cert-visual-card__org">한국데이터산업진흥원</div>
           </div>
-          <div class="cert-visual-card">
+
+          <!-- 사회조사분석사 — 클릭 가능 -->
+          <div class="cert-visual-card" data-modal="cert-social" role="button" tabindex="0" id="cert-social"
+            title="자격증 보기">
             <div class="cert-visual-card__icon">
-              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                <circle cx="14" cy="14" r="9" stroke="#555" stroke-width="1.2" />
-                <path d="M10 14l3 3 5-5" stroke="#444" stroke-width="1.2" stroke-linecap="round"
+              <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
+                <circle cx="14" cy="14" r="9" stroke="#4a4a4a" stroke-width="1.2" />
+                <path d="M10 14l3 3 5-5" stroke="#999" stroke-width="1.2" stroke-linecap="round"
                   stroke-linejoin="round" />
               </svg>
             </div>
@@ -649,45 +723,42 @@
             <div class="cert-visual-card__full">사회조사분석사 2급</div>
             <div class="cert-visual-card__year">2022</div>
             <div class="cert-visual-card__org">한국산업인력공단</div>
+            <div class="cert-visual-card__hint">🔍 클릭하여 보기</div>
           </div>
-          <div class="cert-visual-card">
+
+          <!-- 컴퓨터활용능력 1급 — 클릭 가능 -->
+          <div class="cert-visual-card" data-modal="cert-excel-view" role="button" tabindex="0" id="cert-excel-card"
+            title="자격증 보기">
             <div class="cert-visual-card__icon">
-              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                <rect x="5" y="8" width="18" height="12" rx="1.5" stroke="#555" stroke-width="1.2" />
-                <path d="M9 12h10M9 15h6" stroke="#444" stroke-width="1" stroke-linecap="round" />
-                <path d="M14 20v3" stroke="#555" stroke-width="1.2" />
+              <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
+                <rect x="5" y="8" width="18" height="12" rx="1.5" stroke="#4a4a4a" stroke-width="1.2" />
+                <path d="M9 12h10M9 15h6" stroke="#999" stroke-width="1" stroke-linecap="round" />
               </svg>
             </div>
             <div class="cert-visual-card__name">컴활 1급</div>
             <div class="cert-visual-card__full">컴퓨터활용능력 1급</div>
             <div class="cert-visual-card__year">2023</div>
             <div class="cert-visual-card__org">대한상공회의소</div>
+            <div class="cert-visual-card__hint">🔍 클릭하여 보기</div>
           </div>
-          <div class="cert-visual-card cert-visual-card--recent">
+
+          <!-- 자격증 증빙 통합본 -->
+          <div class="cert-visual-card" data-modal="cert-image-zoom" role="button" tabindex="0" id="btn-cert-zoom"
+            title="자격증 증빙 통합본 보기">
             <div class="cert-visual-card__icon">
-              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                <path d="M6 22 L14 6 L22 22" stroke="#888" stroke-width="1.2" stroke-linecap="round"
+              <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
+                <rect x="4" y="4" width="20" height="20" rx="2" stroke="#4a4a4a" stroke-width="1.2" />
+                <path d="M10 18l4-8 4 8" stroke="#999" stroke-width="1" stroke-linecap="round"
                   stroke-linejoin="round" />
-                <path d="M9 17h10" stroke="#666" stroke-width="1" stroke-linecap="round" />
+                <circle cx="14" cy="10" r="1" fill="#999" />
               </svg>
             </div>
-            <div class="cert-visual-card__name">빅데이터분석기사</div>
-            <div class="cert-visual-card__full">빅데이터 분석기사</div>
-            <div class="cert-visual-card__year">2024</div>
-            <div class="cert-visual-card__org">한국데이터산업진흥원</div>
+            <div class="cert-visual-card__name">자격증 증빙</div>
+            <div class="cert-visual-card__full">3개 자격증 통합 사본</div>
+            <div class="cert-visual-card__year">ADsP · 사조사 · 컴활</div>
+            <div class="cert-visual-card__hint">🔍 클릭하여 보기</div>
           </div>
-          <div class="cert-visual-card cert-visual-card--recent">
-            <div class="cert-visual-card__icon">
-              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                <rect x="7" y="5" width="14" height="18" rx="1.5" stroke="#888" stroke-width="1.2" />
-                <path d="M10 10h8M10 13.5h8M10 17h5" stroke="#666" stroke-width="1" stroke-linecap="round" />
-              </svg>
-            </div>
-            <div class="cert-visual-card__name">정보처리기사</div>
-            <div class="cert-visual-card__full">정보처리기사</div>
-            <div class="cert-visual-card__year">2024</div>
-            <div class="cert-visual-card__org">한국산업인력공단</div>
-          </div>
+
         </div>
       </div>
 
@@ -742,28 +813,33 @@
   <!-- ══════════════════════════════════════
      CONTACT
      ══════════════════════════════════════ -->
-  <section class="contact" id="contact">
+  <section class="contact section-dark" id="contact">
     <div class="container">
-      <div class="divider" style="margin-bottom:80px;"></div>
+      <p class="section-label reveal">Contact</p>
       <h2 class="contact__heading reveal">Let's Connect</h2>
-      <p class="contact__sub reveal reveal--delay-1">궁금한 점이 있으시면 편하게 연락해주세요.</p>
-      <div class="contact__links reveal reveal--delay-2">
-        <!-- 공식 포트폴리오 연락용 이메일 (구글) / 개인 이력서 제출 메일(Naver: yyw7084@naver.com) 구분 -->
+      <p class="contact__sub reveal reveal--d1">궁금한 점이 있으시면 편하게 연락해주세요.</p>
+      <div class="contact__links reveal reveal--d2">
         <a href="mailto:yongwan5871@gmail.com" class="contact__link" id="contact-email">
           <span class="contact__link-icon">✉</span>
-          <span class="contact__link-label">Email</span>
-          <span class="contact__link-value">yongwan5871@gmail.com</span>
+          <div>
+            <span class="contact__link-label">Email</span>
+            <span class="contact__link-value">yongwan5871@gmail.com</span>
+          </div>
         </a>
         <a href="https://www.kaggle.com/humanalystyy" target="_blank" rel="noopener" class="contact__link"
           id="contact-kaggle">
           <span class="contact__link-icon">📊</span>
-          <span class="contact__link-label">Kaggle</span>
-          <span class="contact__link-value">humanalystyy</span>
+          <div>
+            <span class="contact__link-label">Kaggle</span>
+            <span class="contact__link-value">humanalystyy</span>
+          </div>
         </a>
-        <a href="https://github.com/humanalystyy" target="_blank" rel="noopener" class="contact__link" id="contact-github">
+        <a href="https://github.com/BooleanHR" target="_blank" rel="noopener" class="contact__link" id="contact-github">
           <span class="contact__link-icon">⬡</span>
-          <span class="contact__link-label">GitHub</span>
-          <span class="contact__link-value">github.com/humanalystyy</span>
+          <div>
+            <span class="contact__link-label">GitHub</span>
+            <span class="contact__link-value">github.com/BooleanHR</span>
+          </div>
         </a>
       </div>
     </div>
@@ -771,94 +847,77 @@
 
   <footer class="footer">
     <div class="container">
-      <p class="footer__text">© <span id="footer-year">2025</span> 유용완 · All rights reserved</p>
+      <div class="footer__inner">
+        <div class="footer__logo">
+          <img src="img/logo_yyw.png" alt="YYW" class="footer__logo-img">
+          <span class="footer__text">유용완 Yoo Yongwan</span>
+        </div>
+        <p class="footer__text">© <span id="footer-year">2025</span> 유용완 · All rights reserved</p>
+      </div>
     </div>
   </footer>
 
 
   <!-- ══════════════════════════════════════
-     MODAL CONTENTS (hidden)
+     MODAL TEMPLATES
      ══════════════════════════════════════ -->
+
   <template id="tpl-cover-letter">
     <div class="modal-doc">
       <div class="modal-doc__header">
         <span class="modal-doc__tag">자기소개서</span>
         <h2 class="modal-doc__title">근성으로 실행하고 신뢰로 증명하며,<br>채용의 솔루션을 제공하는 PM</h2>
       </div>
-
       <div class="modal-story">
         <div class="modal-story__num">01</div>
         <div class="modal-story__label">전략적 행동 역량</div>
         <h3 class="modal-story__title">전략적 타겟팅과 투명한 소통: 신뢰로 이끌어낸 용역비 66% 증액</h3>
-        <p class="modal-story__body">
-          2024년 에너지 공기업 채용 프로젝트 당시, 저는 제안 단계부터 참여하여 타사와의 차별점을 '데이터 기반의 맞춤형 홍보'로 정의했습니다.
-          과업지시서와 시장 리서치를 통해 지원자 주 타겟층이 고령층임을 파악했고, 경쟁사들이 집중하던 디지털 광고 대신
-          지사 중심의 오프라인 홍보(팜플렛, 현수막)를 역제안하여 수주를 확정 지었습니다.
+        <p class="modal-story__body">2024년 에너지 공기업 채용 프로젝트 당시, 저는 제안 단계부터 참여하여 타사와의 차별점을 '데이터 기반의 맞춤형 홍보'로 정의했습니다.
+          과업지시서와 시장 리서치를 통해 지원자 주 타겟층이 고령층임을 파악했고, 경쟁사들이 집중하던 디지털 광고 대신 지사 중심의 오프라인 홍보(팜플렛, 현수막)를 역제안하여 수주를 확정 지었습니다.
         </p>
-        <p class="modal-story__body">
-          수행 과정에서는 '고객사의 불안을 해소하는 투명성'을 원칙으로 삼았습니다. 요청받지 않은 산출물이라도 지원자 서류를
-          시스템적으로 정교하게 정리하여 수시로 공유했습니다. 이러한 철저한 리스크 관리와 정성은 고객사의 깊은 신뢰로 이어졌고,
-          그 결과 1.2억 원의 초기 계약에서 총 <strong>2.0억 원 규모 (66% 증액)</strong>로 사업을 확대 완수했습니다.
-        </p>
+        <p class="modal-story__body">수행 과정에서는 '고객사의 불안을 해소하는 투명성'을 원칙으로 삼았습니다. 요청받지 않은 산출물이라도 지원자 서류를 시스템적으로 정교하게 정리하여
+          수시로 공유했습니다. 이러한 철저한 리스크 관리와 정성은 고객사의 깊은 신뢰로 이어졌고, 그 결과 1.2억 원의 초기 계약에서 총 <strong>2.0억 원 규모 (66% 증액)</strong>로
+          사업을 확대 완수했습니다.</p>
         <div class="modal-story__metric">
           <span class="modal-story__metric-val">+66%</span>
           <span class="modal-story__metric-label">계약 규모 확대 (1.2억 → 2.0억)</span>
         </div>
       </div>
-
       <div class="modal-story">
         <div class="modal-story__num">02</div>
         <div class="modal-story__label">위기 대응 역량</div>
         <h3 class="modal-story__title">집요한 근성과 프로세스 병렬화: 3일의 한계를 돌파한 위기 관리</h3>
-        <p class="modal-story__body">
-          세종시 소재 준정부기관의 연간 채용 프로젝트는 담당자가 세 차례나 바뀌는 극심한 혼선 속에서 진행되었습니다.
-          특히 최종 합격자 발표 전, 민원 대응을 이유로 면접 후 진위 확인 기간을 단 3일로 단축하라는 무리한 요구가 발생했습니다.
-        </p>
-        <p class="modal-story__body">
-          저는 인수인계 공백으로 인한 히스토리 부재를 탓하기보다, 스스로 이전 용역사 과거 데이터를 분석하여 업무의 맥락을 복원했습니다.
-          서류전형 이후 선제적으로 증빙서류를 제출받고 현장 제출과 동시에 진위 확인을 진행하는 '병렬 프로세스'로 기한 내 완료했습니다.
-          이러한 집요함 덕분에 해당 기관으로부터 <strong>2년이 지난 지금까지도 재입찰 참여 요청</strong>을 받고 있습니다.
-        </p>
+        <p class="modal-story__body">세종시 소재 준정부기관의 연간 채용 프로젝트는 담당자가 세 차례나 바뀌는 극심한 혼선 속에서 진행되었습니다. 특히 최종 합격자 발표 전, 민원 대응을
+          이유로 면접 후 진위 확인 기간을 단 3일로 단축하라는 무리한 요구가 발생했습니다.</p>
+        <p class="modal-story__body">저는 인수인계 공백으로 인한 히스토리 부재를 탓하기보다, 스스로 이전 용역사 과거 데이터를 분석하여 업무의 맥락을 복원했습니다. 서류전형 이후
+          선제적으로 증빙서류를 제출받고 현장 제출과 동시에 진위 확인을 진행하는 '병렬 프로세스'로 기한 내 완료했습니다. 이러한 집요함 덕분에 해당 기관으로부터 <strong>2년이 지난 지금까지도 재입찰
+            참여 요청</strong>을 받고 있습니다.</p>
         <div class="modal-story__metric">
           <span class="modal-story__metric-val">−57%</span>
           <span class="modal-story__metric-label">진위 확인 기간 단축 (7일 → 3일)</span>
         </div>
       </div>
-
       <div class="modal-story">
         <div class="modal-story__num">03</div>
         <div class="modal-story__label">도전적 실행 역량</div>
         <h3 class="modal-story__title">한정된 예산 및 채용 기준 부재 상황 속 목표 대비 200% 지원율 달성</h3>
-        <p class="modal-story__body">
-          신설 공공기관의 첫 채용 총괄을 맡았을 때, 가장 큰 난관은 예산 부족과 불명확한 평가 기준이었습니다.
-          각종 채용 플랫폼에 직접 단가 협상을 제안하여 홍보 예산을 최적화했고, 유관 협회 및 직능단체에 다이렉트로 컨택하는
-          발로 뛰는 홍보를 전개했습니다.
-        </p>
-        <p class="modal-story__body">
-          특히 신설 기관으로서 가장 민감한 이슈인 '경력 산정'의 공정성을 확보하기 위해, K-dart(전자공시시스템) 기관 코드와
-          사업자 유형을 연동한 객관적 필터링 기준을 설계했습니다. 감사관 입회하에 평가위원 만장일치 선발 기준을 적용,
-          고객사의 행정적 부담을 완벽히 해소했습니다.
-        </p>
+        <p class="modal-story__body">신설 공공기관의 첫 채용 총괄을 맡았을 때, 가장 큰 난관은 예산 부족과 불명확한 평가 기준이었습니다. 각종 채용 플랫폼에 직접 단가 협상을 제안하여
+          홍보 예산을 최적화했고, 유관 협회 및 직능단체에 다이렉트로 컨택하는 발로 뛰는 홍보를 전개했습니다.</p>
+        <p class="modal-story__body">특히 신설 기관으로서 가장 민감한 이슈인 '경력 산정'의 공정성을 확보하기 위해, K-dart(전자공시시스템) 기관 코드와 사업자 유형을 연동한
+          객관적 필터링 기준을 설계했습니다. 감사관 입회하에 평가위원 만장일치 선발 기준을 적용, 고객사의 행정적 부담을 완벽히 해소했습니다.</p>
         <div class="modal-story__metric">
           <span class="modal-story__metric-val">200%+</span>
           <span class="modal-story__metric-label">목표 대비 지원자 수 달성</span>
         </div>
       </div>
-
       <div class="modal-story">
         <div class="modal-story__num">04</div>
         <div class="modal-story__label">HR 솔루셔너</div>
         <h3 class="modal-story__title">현장의 비효율을 개선하고 실질적 가치를 만드는 PM</h3>
-        <p class="modal-story__body">
-          지난 채용 컨설팅 경력 동안 10개 이상의 프로젝트를 총괄하며 누적 2.0억 원의 기여 순이익(평균 이익률 30% 이상)을 달성했습니다.
-          저의 가장 큰 핵심 경쟁력은 현장에서 빈번하게 발생하는 인적 오류(Human Error)를 방지하고,
-          수동 업무로 인한 비용 및 시간의 낭비를 시스템적으로 개선하는 역량입니다.
-        </p>
-        <p class="modal-story__body">
-          메일머지 활용, 데이터 교차 검증 체계 기획 등 운영의 안정성과 비용 효율화를 최우선으로 삼아왔습니다.
-          저에게 채용 대행이란 단순 인력 투입이 아니라, 고객사의 운영 리스크를 진단하고 전체 프로세스의 비용 구조를 최적화해
-          수행하는 컨설팅 과정입니다.
-        </p>
+        <p class="modal-story__body">지난 채용 컨설팅 경력 동안 10개 이상의 프로젝트를 총괄하며 누적 2.0억 원의 기여 순이익(평균 이익률 30% 이상)을 달성했습니다. 저의 가장
+          큰 핵심 경쟁력은 현장에서 빈번하게 발생하는 인적 오류(Human Error)를 방지하고, 수동 업무로 인한 비용 및 시간의 낭비를 시스템적으로 개선하는 역량입니다.</p>
+        <p class="modal-story__body">메일머지 활용, 데이터 교차 검증 체계 기획 등 운영의 안정성과 비용 효율화를 최우선으로 삼아왔습니다. 저에게 채용 대행이란 단순 인력 투입이
+          아니라, 고객사의 운영 리스크를 진단하고 전체 프로세스의 비용 구조를 최적화해 수행하는 컨설팅 과정입니다.</p>
         <div class="modal-story__metric">
           <span class="modal-story__metric-val">2.0억+</span>
           <span class="modal-story__metric-label">누적 기여 순이익 (이익률 30%+)</span>
@@ -957,15 +1016,12 @@
         <h2 class="modal-doc__title">채용 프로젝트 수행 중<br>고객사 CS 평가 인터뷰 기록</h2>
         <p class="modal-doc__subtitle">※ 기관명은 개인정보 보호를 위해 비공개 처리되었습니다.</p>
       </div>
-
       <div class="cs-notice">
         <div class="cs-notice__icon">◈</div>
-        <div class="cs-notice__text">
-          이 문서는 채용 대행 프로젝트 종료 후 진행된 고객사 CS 만족도 평가 인터뷰를 요약한 내용입니다.
-          2024년 평균 CS 만족도 <strong>100점 만점</strong>을 달성했으며, 아래와 같이 피드백을 성장의 양분으로 삼아 발전하고 있습니다.
+        <div class="cs-notice__text">이 문서는 채용 대행 프로젝트 종료 후 진행된 고객사 CS 만족도 평가 인터뷰를 요약한 내용입니다. 2024년 평균 CS 만족도
+          <strong>100점 만점</strong>을 달성했으며, 아래와 같이 피드백을 성장의 양분으로 삼아 발전하고 있습니다.
         </div>
       </div>
-
       <div class="cs-block">
         <div class="cs-block__meta">
           <span class="cs-block__org">준정부기관 A</span>
@@ -976,7 +1032,6 @@
         <div class="cs-block__a">담당 PM의 선제적인 커뮤니케이션이 인상적이었습니다. 요청하지 않아도 진행 상황과 리스크를 먼저 공유해주어 내부 보고가 수월했습니다. 특히 진위 확인 일정
           단축 요청에도 별다른 불만 없이 해결책을 제시해주어 신뢰가 높아졌습니다.</div>
       </div>
-
       <div class="cs-block">
         <div class="cs-block__meta">
           <span class="cs-block__org">에너지 공기업 B</span>
@@ -987,8 +1042,6 @@
         <div class="cs-block__a">처음 계약 시 예상보다 훨씬 세밀하게 업무를 처리해주셔서 신뢰가 생겼습니다. 특히 홍보 전략을 데이터 기반으로 역제안해 주신 부분이 좋았고, 결과적으로
           지원자 수가 목표를 초과해 내부적으로도 좋은 평가를 받았습니다. 추가 과업을 맡기는 것이 당연한 선택이었습니다.</div>
       </div>
-
-      <!-- 성장의 전환점이 된 피드백 -->
       <div class="cs-block cs-block--feedback">
         <div class="cs-block__meta">
           <span class="cs-block__org">공공기관 C</span>
@@ -996,53 +1049,86 @@
           <span class="cs-block__year">2025 상반기</span>
         </div>
         <div class="cs-block__q">Q. 채용 전형 수행 중 개선 및 보완이 필요하다고 느낀 부분은 무엇인가요?</div>
-        <div class="cs-block__a">업무 자체는 매우 성실하고 신속하게 대응해 주셨습니다. 다만, 단순히 전달받은 과업을 수동적으로 처리하는 데 그쳐 용역사 차원의 적극적인 대안 제시나 전략적 피드백이 다소 아쉬웠습니다. 경험과 연차가 더 많은 시니어 PM이 직접 소통하며 신뢰감과 전문성을 더 깊게 실어주었다면 하는 바램이 있습니다.</div>
+        <div class="cs-block__a">업무 자체는 매우 성실하고 신속하게 대응해 주셨습니다. 다만, 단순히 전달받은 과업을 수동적으로 처리하는 데 그쳐 용역사 차원의 적극적인 대안 제시나 전략적
+          피드백이 다소 아쉬웠습니다. 경험과 연차가 더 많은 시니어 PM이 직접 소통하며 신뢰감과 전문성을 더 깊게 실어주었다면 하는 바램이 있습니다.</div>
       </div>
-
-      <!-- 피드백 극복 및 성장 서사 -->
       <div class="growth-narrative">
         <h3 class="growth-narrative__title">◈ 피드백을 기반으로 이뤄낸 PM 전문성 혁신</h3>
-        <p class="growth-narrative__intro">
-          단순 실무 오퍼레이터(Operator)에 머물지 않고, 고객사의 리스크를 선제적으로 진단하고 해결하는 <strong>컨설턴트(Consultant) PM</strong>로 거듭나기 위해 다음과 같은 체질 개선을 단행했습니다.
+        <p class="growth-narrative__intro">단순 실무 오퍼레이터(Operator)에 머물지 않고, 고객사의 리스크를 선제적으로 진단하고 해결하는
+          <strong>컨설턴트(Consultant) PM</strong>으로 거듭나기 위해 다음과 같은 체질 개선을 단행했습니다.
         </p>
         <div class="growth-narrative__grid">
           <div class="growth-card">
             <div class="growth-card__num">01</div>
-            <div class="growth-card__title">데이터 및 기획 전문성 보강</div>
-            <p class="growth-card__desc">
-              이론과 분석적 기술을 보강하고자 2024년 <strong>빅데이터분석기사</strong> 및 <strong>정보처리기사</strong> 자격을 연달아 취득하여 시스템 설계 및 가용성 높은 데이터 분석의 기틀을 다졌습니다.
-            </p>
+            <div class="growth-card__title">데이터 분석 및 평가 기획 역량</div>
+            <p class="growth-card__desc">채용 데이터 분석의 정밀도를 높이기 위해 <strong>ADsP(데이터분석준전문가)</strong> 및 <strong>사회조사분석사
+                2급</strong> 자격을 기반으로 계량 평가와 데이터 통계 분석의 기틀을 견고히 다졌습니다.</p>
           </div>
           <div class="growth-card">
             <div class="growth-card__num">02</div>
             <div class="growth-card__title">객관적 평가 기준 모델 선제 제안</div>
-            <p class="growth-card__desc">
-              서울투자진흥재단 프로젝트 수행 시, 규정이 모호한 경력 인정 여부에 대해 K-dart(전자공시) 유형 분류 모델을 연동한 <strong>'객관적 경력 평가 기준'</strong>을 기획·제안하여 감사관의 만장일치 통과 및 공정성을 입증했습니다.
-            </p>
+            <p class="growth-card__desc">서울투자진흥재단 프로젝트 수행 시, K-dart(전자공시) 유형 분류 모델을 연동한 <strong>'객관적 경력 평가 기준'</strong>을
+              기획·제안하여 감사관의 만장일치 통과 및 공정성을 입증했습니다.</p>
           </div>
           <div class="growth-card">
             <div class="growth-card__num">03</div>
             <div class="growth-card__title">전략적 홍보 역제안 및 66% 증액 수주</div>
-            <p class="growth-card__desc">
-              에너지 공기업 채용 시 타겟층(고령층) 특성을 정밀 분석하여 디지털 광고 대신 전국 지사 오프라인 타겟 홍보를 역제안하고, 필기 전형의 필요성을 논리적으로 제안해 <strong>1.2억의 초기 계약을 2.0억 규모로 66% 증액 수주</strong>시켰습니다.
+            <p class="growth-card__desc">에너지 공기업 채용 시 타겟층(고령층) 특성을 분석하여 오프라인 타겟 홍보를 역제안하고, 필기 전형의 필요성을 논리적으로 제안해
+              <strong>1.2억→2.0억 66% 증액 수주</strong>시켰습니다.
             </p>
           </div>
         </div>
       </div>
-
       <div class="cs-note">※ 위 인터뷰 내용은 실제 고객사 피드백을 기반으로 요약 및 재구성한 내용입니다.</div>
     </div>
   </template>
 
+  <!-- 사회조사분석사 자격증 -->
+  <template id="tpl-cert-social">
+    <div class="modal-doc">
+      <div class="modal-doc__header">
+        <span class="modal-doc__tag">자격증 증빙</span>
+        <h2 class="modal-doc__title">사회조사분석사 2급</h2>
+      </div>
+      <div class="cert-image-modal">
+        <img src="img/cert_social.png" alt="사회조사분석사 2급 자격증" class="cert-image-modal__img">
+        <div class="cert-image-modal__info">
+          <div class="cert-image-modal__name">사회조사분석사 2급</div>
+          <div class="cert-image-modal__detail">취득일 · 2022.09.02</div>
+          <div class="cert-image-modal__org">한국산업인력공단 (HRDK)</div>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <!-- 컴퓨터활용능력 1급 자격증 -->
+  <template id="tpl-cert-excel-view">
+    <div class="modal-doc">
+      <div class="modal-doc__header">
+        <span class="modal-doc__tag">자격증 증빙</span>
+        <h2 class="modal-doc__title">컴퓨터활용능력 1급</h2>
+      </div>
+      <div class="cert-image-modal">
+        <img src="img/cert_excel.png" alt="컴퓨터활용능력 1급 자격증" class="cert-image-modal__img">
+        <div class="cert-image-modal__info">
+          <div class="cert-image-modal__name">컴퓨터활용능력 1급</div>
+          <div class="cert-image-modal__detail">취득일 · 2023.01.27</div>
+          <div class="cert-image-modal__org">대한상공회의소</div>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <!-- 자격증 증빙 통합본 -->
   <template id="tpl-cert-image-zoom">
     <div class="modal-doc modal-doc--image-zoom">
       <div class="modal-doc__header">
         <span class="modal-doc__tag">자격증 증빙</span>
         <h2 class="modal-doc__title">자격증 증빙 사본 통합본</h2>
-        <p class="modal-doc__subtitle">자격 검정 기관에서 발급한 공식 자격증 사본 모음입니다. (마우스 드래그 혹은 모바일 핀치 줌이 가능합니다.)</p>
+        <p class="modal-doc__subtitle">자격 검정 기관에서 발급한 공식 자격증 사본 모음입니다.</p>
       </div>
       <div class="modal-image-zoom-wrap">
-        <img src="img/cert_badges.png" alt="자격증 증빙 원본 이미지" class="modal-image-zoom__img">
+        <img src="img/cert_badges.png" alt="자격증 증빙 원본" class="modal-image-zoom__img">
       </div>
     </div>
   </template>
