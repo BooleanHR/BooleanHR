@@ -16,3 +16,6 @@ build/
 # Common (OS Files)
 .DS_Store
 Thumbs.db
+
+# Personal / Private documents
+private_documents/
