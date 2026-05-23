@@ -354,8 +354,8 @@ section { padding: var(--sp-96) 0; }
 
 /* YYW Logo */
 .hero__logo {
-  width: clamp(72px, 10vw, 120px);
-  height: clamp(72px, 10vw, 120px);
+  width: clamp(100px, 12vw, 160px);
+  height: clamp(100px, 12vw, 160px);
   object-fit: contain;
   margin: 0 auto var(--sp-40);
   opacity: 0;
@@ -1378,7 +1378,7 @@ section { padding: var(--sp-96) 0; }
    ============================================================ */
 @media (max-width: 480px) {
   .hero__content { padding: var(--sp-48) var(--sp-20); }
-  .hero__logo { width: 72px; height: 72px; }
+  .hero__logo { width: 96px; height: 96px; }
   .project-totals { gap: var(--sp-24); }
   .contact__links { grid-template-columns: 1fr; }
   .kpi-card__value { font-size: 28px; }

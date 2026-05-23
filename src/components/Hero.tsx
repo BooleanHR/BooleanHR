@@ -42,7 +42,7 @@ export const Hero: React.FC = () => {
         <img 
           src={logoYyw} 
           alt="YYW 모노그램 로고" 
-          className={`w-[clamp(72px,10vw,120px)] h-[clamp(72px,10vw,120px)] object-contain mx-auto mb-10 transition-all duration-900 ease-out ${
+          className={`w-[clamp(100px,12vw,160px)] h-[clamp(100px,12vw,160px)] object-contain mx-auto mb-10 transition-all duration-900 ease-out ${
             isVisible ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-[0.88] translate-y-2'
           }`}
         />
